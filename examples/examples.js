@@ -6,5 +6,5 @@ var NodeAccess = require('../lib/node-access'),
     
 NodeAccess.debug = true;
 example.query('SELECT * FROM Users').on('done', function (data){
-    console.log('Resulet:'.bold, JSON.stringify(data, null, '  ').bold);
+    console.log('Result:'.bold, JSON.stringify(data, null, '  ').bold);
 });
