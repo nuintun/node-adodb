@@ -7,7 +7,7 @@ var NodeAccess = require('../lib/node-access'),
 NodeAccess.debug = true;
 
 connection
-    .query('SELECT * FROM Users')
+    .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("张三", "男", 33)')
     .on('done', function (data){
         console.log('Result:'.bold, JSON.stringify(data, null, '  ').bold);
     })
