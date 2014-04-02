@@ -5,7 +5,8 @@ var NodeAccess = require('../lib/node-access'),
     example = NodeAccess.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-access.mdb');
     
 NodeAccess.debug = true;
-example.query('SELECT * FROM Users')
+example
+    .query('SELECT * FROM Users')
     .on('done', function (data){
         console.log('Result:'.bold, JSON.stringify(data, null, '  ').bold);
     })
