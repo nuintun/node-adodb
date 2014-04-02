@@ -2,7 +2,7 @@ Node-Access
 ===========
 >A Node.js JavaScript Client implementing the Access Database protocol .
 
-###Document:
+###Documents:
 ```js
 var NodeAccess = require('node-access'), //注意引用路径
     example = NodeAccess.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-access.mdb');
