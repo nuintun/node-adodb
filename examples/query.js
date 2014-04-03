@@ -9,5 +9,5 @@ NodeAccess.debug = true;
 connection
     .query('SELECT * FROM Users')
     .on('done', function (data){
-        console.log('Result:'.bold, JSON.stringify(data, null, '  ').bold);
+        console.log('Result:'.green.bold, JSON.stringify(data, null, '  ').bold);
     });
