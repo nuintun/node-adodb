@@ -29,3 +29,6 @@ connection
         console.log('Error:'.red.bold, data.bold);
     });
 ```
+
+###Extension:
+>Node-Access理论支持Windows平台下所有支持ADODB连接的数据库，只需要更改数据库连接字符串即可实现操作！
