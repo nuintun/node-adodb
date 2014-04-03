@@ -9,5 +9,5 @@ NodeAccess.debug = true;
 connection
     .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("张三", "男", 33)')
     .on('done', function (data){
-        console.log('Result:'.bold, JSON.stringify(data, null, '  ').bold);
+        console.log('Result:'.green.bold, JSON.stringify(data, null, '  ').bold);
     });
