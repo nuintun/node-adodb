@@ -6,9 +6,11 @@ Node-Access
 ```js
 var NodeAccess = require('node-access'), //注意引用路径
     connection = NodeAccess.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-access.mdb;');
-    
-NodeAccess.debug = true; // 全局调试开关，默认关闭
-exports.x64 = false; // 启用64位模式，不建议开启，除非你确定64位系统的 Microsoft JET 没有问题，32位系统设置无效，默认关闭
+
+// 全局调试开关，默认关闭
+NodeAccess.debug = true;
+// 启用64位模式，不建议开启，除非你确定64位系统的 Microsoft JET 没有问题，32位系统设置无效，默认关闭
+exports.x64 = false;
 
 // 不带返回的查询
 connection
