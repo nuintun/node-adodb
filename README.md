@@ -32,3 +32,7 @@ connection
 
 ###Extension:
 >Node-Access理论支持Windows平台下所有支持ADODB连接的数据库，只需要更改数据库连接字符串即可实现操作！
+
+###Notes:
+>Node-Access需要系统支持Microsoft.Jet.OLEDB.4.0，对于Windows XP SP2以上系统默认支持，其它需要自己升级，具体操作过程请参考：
+[如何获取 Microsoft Jet 4.0 数据库引擎的最新 Service Pack](http://support.microsoft.com/default.aspx?scid=kb;zh-CN;239114)
