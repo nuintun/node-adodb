@@ -12,5 +12,5 @@ connection
         console.log('Result:'.bold, JSON.stringify(data, null, '  ').bold);
     })
     .on('fail', function (data){
-        console.log('Error:'.red.bold, data.bold);
+        console.log('Error:'.red.bold, JSON.stringify(data, null, '  ').bold);
     });
