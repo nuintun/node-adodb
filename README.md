@@ -5,7 +5,7 @@ Node-Access
 ###Documents:
 ```js
 var NodeAccess = require('node-access'), //注意引用路径
-    connection = NodeAccess.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-access.mdb');
+    connection = NodeAccess.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-access.mdb;');
     
 NodeAccess.debug = true; // 全局调试开关，默认关闭
 
