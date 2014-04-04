@@ -2,9 +2,14 @@ Node-Access
 ===========
 >A Node.js JavaScript Client implementing the Access Database protocol .
 
-###Documents:
+###Install
+```
+$ npm install node-access
+```
+
+###Introduction:
 ```js
-var NodeAccess = require('node-access'), //注意引用路径
+var NodeAccess = require('node-access'),
     connection = NodeAccess.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-access.mdb;');
 
 // 全局调试开关，默认关闭
