@@ -1,4 +1,4 @@
 @echo off
 echo node-access examples:
-..\node.exe query.js
+node query.js
 pause
