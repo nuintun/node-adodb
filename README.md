@@ -17,7 +17,7 @@ NodeAccess.debug = true;
 
 // 不带返回的查询
 connection
-    .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("张三", "男", 33)')
+    .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)')
     .on('done', function (data){
         console.log('Result:'.green.bold, JSON.stringify(data, null, '  ').bold);
     })
