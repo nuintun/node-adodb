@@ -1,0 +1,36 @@
+{
+    "name": "node-access",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "keywords": [
+        "access",
+        "node-access",
+        "database",
+        "microsoft access"
+    ],
+    "homepage": "https://github.com/NewtonNiu/node-access",
+    "description": "A Node.js JavaScript Client implementing the Access Database protocol .",
+    "author": {
+        "name": "NewtonNiu",
+        "email": "<yongmiui@gmail.com>"
+    },
+    "bugs": {
+        "url": "https://github.com/NewtonNiu/node-access/issues",
+        "email": "yongmiui@gmail.com"
+    },
+    "engines": {
+        "node": ">=0.8.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/NewtonNiu/node-access.git"
+    },
+    "dependencies": {
+        "iconv-lite": ">=0.2.11"
+    },
+    "devDependencies": {
+        "iconv-lite": ">=0.2.11"
+    },
+    "readmeFilename": "README.md"
+}
