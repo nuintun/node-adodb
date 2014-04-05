@@ -1,4 +1,4 @@
 @echo off
-echo node-access examples:
+echo node-adodb examples:
 node query.js
 pause
