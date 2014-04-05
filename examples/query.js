@@ -1,8 +1,8 @@
 /**
  * Created by Newton on 2014/4/2.
  */
-var NodeAccess = require('../lib/node-access'),
-    connection = NodeAccess.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-access.mdb;');
+var ADODB = require('../lib/client'),
+    connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-adodb.mdb;');
     
 NodeAccess.debug = true;
 
