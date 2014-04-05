@@ -10,7 +10,7 @@ $ npm install node-adodb
 ###Introduction:
 ```js
 var ADODB = require('node-adodb'),
-    connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-access.mdb;');
+    connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-adodb.mdb;');
 
 // 全局调试开关，默认关闭
 ADODB.debug = true;
