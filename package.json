@@ -1,22 +1,24 @@
 {
-    "name": "node-access",
-    "version": "1.0.5",
+    "name": "node-adodb",
+    "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
     "keywords": [
-        "access",
-        "node-access",
+        "sql",
+        "adodb",
+        "access"
         "database",
-        "microsoft access"
+        "node-adodb",
+        "microsoft adodb"
     ],
-    "homepage": "https://github.com/NewtonNiu/node-access",
-    "description": "A Node.js JavaScript Client implementing the Access Database protocol .",
+    "homepage": "https://github.com/NewtonNiu/node-adodb",
+    "description": "A Node.js JavaScript Client implementing the ADODB protocol .",
     "author": {
         "name": "NewtonNiu",
         "email": "<yongmiui@gmail.com>"
     },
     "bugs": {
-        "url": "https://github.com/NewtonNiu/node-access/issues",
+        "url": "https://github.com/NewtonNiu/node-adodb/issues",
         "email": "yongmiui@gmail.com"
     },
     "engines": {
@@ -24,7 +26,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/NewtonNiu/node-access.git"
+        "url": "https://github.com/NewtonNiu/node-adodb.git"
     },
     "dependencies": {
         "iconv-lite": ">=0.2.11"
