@@ -4,7 +4,7 @@
 var ADODB = require('../lib/client'),
     connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-adodb.mdb;');
     
-NodeAccess.debug = true;
+ADODB.debug = true;
 
 connection
     .query('SELECT * FROM Users')
