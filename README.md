@@ -1,4 +1,4 @@
-node-adodb
+node-adodb [![NPM version](https://badge.fury.io/js/node-adodb.png)](https://www.npmjs.org/package/node-adodb)
 ===========
 >A Node.js JavaScript Client implementing the ADODB protocol .
 
