@@ -11,22 +11,22 @@
         "node-adodb",
         "microsoft adodb"
     ],
-    "homepage": "https://github.com/NewtonNiu/node-adodb",
+    "homepage": "https://github.com/nuintun/node-adodb",
     "description": "A Node.js JavaScript Client implementing the ADODB protocol .",
     "author": {
-        "name": "NewtonNiu",
-        "email": "<yongmiui@gmail.com>"
+        "name": "Nuintun",
+        "email": "<nuintun@qq.com>"
     },
     "bugs": {
-        "url": "https://github.com/NewtonNiu/node-adodb/issues",
-        "email": "yongmiui@gmail.com"
+        "url": "https://github.com/nuintun/node-adodb/issues",
+        "email": "nuintun@qq.com"
     },
     "engines": {
         "node": ">=0.8.0"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/NewtonNiu/node-adodb.git"
+        "url": "https://github.com/nuintun/node-adodb.git"
     },
     "dependencies": {
         "iconv-lite": ">=0.2.11",
