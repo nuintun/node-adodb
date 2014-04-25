@@ -1,0 +1,16 @@
+# Dependency directory
+# Deployed apps should consider commenting this line out:
+# see https://npmjs.org/doc/faq.html#Should-I-check-my-node_modules-folder-into-git
+node_modules
+
+# WebStorm
+.idea
+
+# github
+.gitignore
+
+# npm
+.npmignore
+
+# travis
+.travis.yml
