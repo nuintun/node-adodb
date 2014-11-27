@@ -216,3 +216,6 @@ pip-log.txt
 
 #node modules
 node_modules
+
+#WebStorm
+.idea
