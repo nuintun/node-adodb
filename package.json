@@ -1,40 +1,40 @@
 {
-    "name": "node-adodb",
-    "version": "1.1.0",
-    "main": "index.js",
-    "license": "MIT",
-    "keywords": [
-        "sql",
-        "adodb",
-        "access",
-        "database",
-        "node-adodb",
-        "microsoft adodb"
-    ],
-    "homepage": "https://github.com/nuintun/node-adodb",
-    "description": "A Node.js JavaScript Client implementing the ADODB protocol .",
-    "author": {
-        "name": "Nuintun",
-        "email": "<nuintun@qq.com>"
-    },
-    "bugs": {
-        "url": "https://github.com/nuintun/node-adodb/issues",
-        "email": "nuintun@qq.com"
-    },
-    "engines": {
-        "node": ">=0.8.0"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/nuintun/node-adodb.git"
-    },
-    "dependencies": {
-        "iconv-lite": ">=0.2.11",
-        "colors": ">=0.6.2"
-    },
-    "devDependencies": {
-        "iconv-lite": ">=0.2.11",
-        "colors": ">=0.6.2"
-    },
-    "readmeFilename": "README.md"
+  "name": "node-adodb",
+  "version": "1.1.0",
+  "main": "index.js",
+  "license": "MIT",
+  "keywords": [
+    "sql",
+    "adodb",
+    "access",
+    "database",
+    "node-adodb",
+    "microsoft adodb"
+  ],
+  "homepage": "https://github.com/nuintun/node-adodb",
+  "description": "A Node.js JavaScript Client implementing the ADODB protocol .",
+  "author": {
+    "name": "Nuintun",
+    "email": "<nuintun@qq.com>"
+  },
+  "bugs": {
+    "url": "https://github.com/nuintun/node-adodb/issues",
+    "email": "nuintun@qq.com"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nuintun/node-adodb.git"
+  },
+  "dependencies": {
+    "iconv-lite": ">=0.2.11",
+    "colors": ">=0.6.2"
+  },
+  "devDependencies": {
+    "iconv-lite": ">=0.2.11",
+    "colors": ">=0.6.2"
+  },
+  "readmeFilename": "README.md"
 }
