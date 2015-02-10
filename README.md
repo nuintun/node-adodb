@@ -45,6 +45,12 @@ connection
 `ADODB.encoding`
 >全局默认编码设置。
 
+`ADODB.query`
+>执行有返回值的SQL。
+
+`ADODB.execute`
+>执行无返回值的SQL。
+
 `ADODB.open(connection[, encoding])`
 >编码设置为可选参数，可以用`ADODB.encoding`进行全局设置。
 
