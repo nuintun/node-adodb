@@ -40,7 +40,7 @@ connection
 
 ###API:
 `ADODB.debug`
->打开调试开关。
+>全局调试开关。
 
 `ADODB.encoding`
 >全局默认编码设置。
