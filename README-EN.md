@@ -51,7 +51,7 @@ connection
 >Execute a SQL statement that returns a value.
 
 `ADODB.execute`
->Execute a SQL statement that do not return values.
+>Execute a SQL statement that do not returns a value.
 
 `ADODB.open(connection[, encoding])`
 >Encoding settings for optional parameters, can be used for `ADODB.encoding` global settings.
