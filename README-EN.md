@@ -48,10 +48,10 @@ connection
 >The global encoding settings.
 
 `ADODB.query`
->Execute SQL statement that returns a value.
+>Execute a SQL statement that returns a value.
 
 `ADODB.execute`
->Execute SQL statements that do not return values.
+>Execute a SQL statement that do not return values.
 
 `ADODB.open(connection[, encoding])`
 >Encoding settings for optional parameters, can be used for `ADODB.encoding` global settings.
