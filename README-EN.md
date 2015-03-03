@@ -1,6 +1,8 @@
-node-adodb [![NPM version](https://badge.fury.io/js/node-adodb.png)](https://www.npmjs.org/package/node-adodb)
+node-adodb
 ===========
 >A Node.js JavaScript Client implementing the ADODB protocol.
+
+>[![NPM Version][npm-image]][npm-url]
 
 ###Install
 ```
@@ -60,3 +62,6 @@ connection
 ###Notes:
 >The plug-in need system support for Microsoft.Jet.OLEDB.4.0, Windows XP SP2 above support system default, other need to upgrade their specific operation process, please refer to:
 [How to obtain the Microsoft Jet 4 database engine of the new Service Pack](http://support2.microsoft.com/kb/239114/en-us)
+
+[npm-image]: http://img.shields.io/npm/v/node-adodb.svg?style=flat-square
+[npm-url]: https://www.npmjs.org/package/node-adodb

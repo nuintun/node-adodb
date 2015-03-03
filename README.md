@@ -1,6 +1,8 @@
-node-adodb [![NPM version](https://badge.fury.io/js/node-adodb.png)](https://www.npmjs.org/package/node-adodb)
+node-adodb
 ===========
 >一个用 Node.js 实现的 ADODB 协议。
+
+>[![NPM Version][npm-image]][npm-url]
 
 ###安装
 ```
@@ -60,3 +62,6 @@ connection
 ###注意:
 >该插件需要系统支持 Microsoft.Jet.OLEDB.4.0，对于 Windows XP SP2 以上系统默认支持，其它需要自己升级，具体操作过程请参考：
 [如何获取 Microsoft Jet 4.0 数据库引擎的最新 Service Pack](http://support.microsoft.com/default.aspx?scid=kb;zh-CN;239114)
+
+[npm-image]: http://img.shields.io/npm/v/node-adodb.svg?style=flat-square
+[npm-url]: https://www.npmjs.org/package/node-adodb
