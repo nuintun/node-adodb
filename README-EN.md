@@ -60,13 +60,13 @@ connection
 `ADODB.encoding`
 >The global encoding settings.
 
-`ADODB.query`
+`ADODB.query(sql)`
 >Execute a SQL statement that returns a value.
 
-`ADODB.execute`
+`ADODB.execute(sql)`
 >Execute a SQL statement that do not returns a value.
 
-`ADODB.executeScalar`
+`ADODB.executeScalar(sql, scalar)`
 >Execute a SQL statement that returns a scalar value.
 
 `ADODB.open(connection[, encoding])`

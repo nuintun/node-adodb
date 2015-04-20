@@ -60,13 +60,13 @@ connection
 `ADODB.encoding`
 >全局默认编码设置。
 
-`ADODB.query`
+`ADODB.query(sql)`
 >执行有返回值的SQL语句。
 
-`ADODB.execute`
+`ADODB.execute(sql)`
 >执行无返回值的SQL语句。
 
-`ADODB.executeScalar`
+`ADODB.executeScalar(sql, scalar)`
 >执行带返回标识的SQL语句。
 
 `ADODB.open(connection[, encoding])`
