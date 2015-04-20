@@ -31,7 +31,10 @@ connection
   
 // With the scalar return of the query
 connection
-  .executeScalar('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)', 'SELECT @@Identity AS id')
+  .executeScalar(
+    'INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)',
+    'SELECT @@Identity AS id'
+  )
   .on('done', function (data){
     console.log('Result:'.green.bold, JSON.stringify(data, null, '  ').bold);
   })
