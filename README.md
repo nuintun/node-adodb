@@ -28,6 +28,16 @@ connection
   .on('fail', function (data){
     // TODO 逻辑处理
   });
+  
+// 带返回标识的查询
+connection
+  .executeScalar('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)', ''SELECT @@Identity AS id'')
+  .on('done', function (data){
+    console.log('Result:'.green.bold, JSON.stringify(data, null, '  ').bold);
+  })
+  .on('fail', function (data){
+    // TODO 逻辑处理
+  });
 
 // 带返回的查询
 connection
@@ -52,6 +62,9 @@ connection
 
 `ADODB.execute`
 >执行无返回值的SQL语句。
+
+`ADODB.executeScalar`
+>执行带返回标识的SQL语句。
 
 `ADODB.open(connection[, encoding])`
 >编码设置为可选参数，可以用`ADODB.encoding`进行全局设置。

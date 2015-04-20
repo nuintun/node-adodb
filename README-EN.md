@@ -28,6 +28,16 @@ connection
   .on('fail', function (data){
     // TODO something
   });
+  
+// With the scalar return of the query
+connection
+  .executeScalar('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)', ''SELECT @@Identity AS id'')
+  .on('done', function (data){
+    console.log('Result:'.green.bold, JSON.stringify(data, null, '  ').bold);
+  })
+  .on('fail', function (data){
+    // TODO something
+  });
 
 // With the return of the query
 connection
@@ -52,6 +62,9 @@ connection
 
 `ADODB.execute`
 >Execute a SQL statement that do not returns a value.
+
+`ADODB.executeScalar`
+>Execute a SQL statement that returns a scalar value.
 
 `ADODB.open(connection[, encoding])`
 >Encoding settings for optional parameters, can be used for `ADODB.encoding` global settings.

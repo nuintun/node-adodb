@@ -29,12 +29,9 @@
     "url": "https://github.com/nuintun/node-adodb.git"
   },
   "dependencies": {
-    "iconv-lite": ">=0.2.11",
-    "colors": ">=0.6.2"
+    "iconv-lite": "~0.4.8",
+    "colors": "~1.0.3"
   },
-  "devDependencies": {
-    "iconv-lite": ">=0.2.11",
-    "colors": ">=0.6.2"
-  },
+  "devDependencies": {},
   "readmeFilename": "README.md"
 }
