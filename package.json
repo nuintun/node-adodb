@@ -14,7 +14,7 @@
   "homepage": "https://github.com/nuintun/node-adodb",
   "description": "A Node.js JavaScript Client implementing the ADODB protocol .",
   "author": {
-    "name": "Nuintun",
+    "name": "nuintun",
     "email": "<nuintun@qq.com>"
   },
   "bugs": {

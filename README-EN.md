@@ -82,5 +82,5 @@ connection
 [npm-url]: https://www.npmjs.org/package/node-adodb
 [npm-image]: https://img.shields.io/npm/v/node-adodb.svg?style=flat-square
 [download-image]: https://img.shields.io/npm/dm/node-adodb.svg?style=flat-square
-[david-url]: https://david-dm.org/Nuintun/node-adodb
+[david-url]: https://david-dm.org/nuintun/node-adodb
 [david-image]: https://img.shields.io/david/nuintun/node-adodb.svg?style=flat-square
