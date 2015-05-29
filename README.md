@@ -55,6 +55,9 @@ connection
 `ADODB.debug`
 >全局调试开关。
 
+`ADODB.open(connection)`
+>初始化数据库链接参数。
+
 `ADODB.query(sql)`
 >执行有返回值的SQL语句。
 
@@ -63,9 +66,6 @@ connection
 
 `ADODB.executeScalar(sql, scalar)`
 >执行带返回标识的SQL语句。
-
-`ADODB.open(connection)`
->初始化数据库链接参数。
 
 ###扩展:
 >该插件理论支持 Windows 平台下所有支持 ADODB 连接的数据库，只需要更改数据库连接字符串即可实现操作！

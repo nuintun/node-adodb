@@ -55,6 +55,9 @@ connection
 `ADODB.debug`
 >The global debugging switch.
 
+`ADODB.open(connection)`
+>Initialization database link parameters.
+
 `ADODB.query(sql)`
 >Execute a SQL statement that returns a value.
 
@@ -63,9 +66,6 @@ connection
 
 `ADODB.executeScalar(sql, scalar)`
 >Execute a SQL statement that returns a scalar value.
-
-`ADODB.open(connection)`
->Initialization database link parameters.
 
 ###Extension:
 >The plug-in theoretical support under the platform of Windows all support the ADODB connection database, only need to change the database connection string operation can be realized!
