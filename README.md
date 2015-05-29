@@ -55,9 +55,6 @@ connection
 `ADODB.debug`
 >全局调试开关。
 
-`ADODB.encoding`
->全局默认编码设置。
-
 `ADODB.query(sql)`
 >执行有返回值的SQL语句。
 
