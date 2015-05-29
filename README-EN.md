@@ -16,8 +16,6 @@ var ADODB = require('node-adodb'),
 
 // Global debug switch
 ADODB.debug = true;
-// Global encoding settings
-ADODB.encoding = 'gbk';
 
 // Without the query returned
 connection
@@ -69,8 +67,8 @@ connection
 `ADODB.executeScalar(sql, scalar)`
 >Execute a SQL statement that returns a scalar value.
 
-`ADODB.open(connection[, encoding])`
->Encoding settings for optional parameters, can be used for `ADODB.encoding` global settings.
+`ADODB.open(connection)`
+>Initialization database link parameters.
 
 ###Extension:
 >The plug-in theoretical support under the platform of Windows all support the ADODB connection database, only need to change the database connection string operation can be realized!

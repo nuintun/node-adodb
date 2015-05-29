@@ -16,8 +16,6 @@ var ADODB = require('node-adodb'),
 
 // 全局调试开关，默认关闭
 ADODB.debug = true;
-// 编码设定
-ADODB.encoding = 'gbk';
 
 // 不带返回的查询
 connection
@@ -69,8 +67,8 @@ connection
 `ADODB.executeScalar(sql, scalar)`
 >执行带返回标识的SQL语句。
 
-`ADODB.open(connection[, encoding])`
->编码设置为可选参数，可以用`ADODB.encoding`进行全局设置。
+`ADODB.open(connection)`
+>初始化数据库链接参数。
 
 ###扩展:
 >该插件理论支持 Windows 平台下所有支持 ADODB 连接的数据库，只需要更改数据库连接字符串即可实现操作！
