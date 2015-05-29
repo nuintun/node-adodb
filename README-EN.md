@@ -55,9 +55,6 @@ connection
 `ADODB.debug`
 >The global debugging switch.
 
-`ADODB.encoding`
->The global encoding settings.
-
 `ADODB.query(sql)`
 >Execute a SQL statement that returns a value.
 
