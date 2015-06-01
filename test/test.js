@@ -16,6 +16,7 @@ var adodb = path.join(__dirname, 'adodb.js'),
 
 console.log(cscript);
 console.log(adodb);
+console.log(fs.existsSync(cscript));
 
 describe('ADODB', function (){
   // Variable declaration
