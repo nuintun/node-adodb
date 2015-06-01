@@ -8,6 +8,15 @@ var source = path.join(__dirname, 'node-adodb.mdb'),
 
 fs.writeFileSync(source, mdb);
 
+// Variable declaration
+var adodb = path.join(__dirname, 'adodb.js'),
+  sysroot = process.env['systemroot'] || process.env['windir'],
+  x64 = fs.existsSync(path.join(sysroot, 'SysWOW64')),
+  cscript = path.join(sysroot, x64 ? 'SysWOW64' : 'System32', 'cscript.exe');
+
+console.log(cscript);
+console.log(adodb);
+
 describe('ADODB', function (){
   // Variable declaration
   var connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=' + source + ';');
