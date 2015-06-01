@@ -14,9 +14,8 @@ var adodb = path.join(__dirname, 'adodb.js'),
   x64 = fs.existsSync(path.join(sysroot, 'SysWOW64')),
   cscript = path.join(sysroot, x64 ? 'SysWOW64' : 'System32', 'cscript.exe');
 
-console.log(cscript);
-console.log(adodb);
-console.log(fs.existsSync(cscript));
+console.log(cscript, fs.existsSync(cscript) ? 'exists' : '');
+console.log(adodb, fs.existsSync(adodb) ? 'exists' : '');
 
 describe('ADODB', function (){
   // Variable declaration
