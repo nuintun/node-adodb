@@ -3,9 +3,9 @@ var fs = require('fs'),
   ADODB = require('../index'),
   expect = require('expect.js');
 
-var mdb = fs.readFileSync(path.join(__dirname, 'examples/node-adodb.mdb'));
+var mdb = fs.readFileSync(path.join(__dirname, '../examples/node-adodb.mdb'));
 
-fs.writeFileSync(path.join(__dirname, 'test/node-adodb.mdb'), mdb);
+fs.writeFileSync(path.join(__dirname, 'node-adodb.mdb'), mdb);
 
 describe('ADODB', function (){
   // Variable declaration
