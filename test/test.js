@@ -5,7 +5,7 @@ describe('ADODB', function (){
   // Variable declaration
   var connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-adodb.mdb;');
 
-  it('execute', function (){
+  it('execute', function (next){
     connection
       .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Nuintun", "Male", 25)')
       .on('done', function (data){
@@ -13,22 +13,26 @@ describe('ADODB', function (){
           valid: true,
           message: 'Execute SQL: INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Nuintun", "Male", 25) success !'
         });
+
+        next();
       });
   });
 
-  it('executeScalar', function (){
+  it('executeScalar', function (next){
     connection
-      .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Alice", "Female", 25)', 'SELECT @@Identity AS id')
+      .executeScalar('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Alice", "Female", 25)', 'SELECT @@Identity AS id')
       .on('done', function (data){
         expect(data).to.eql({
           valid: true,
           message: 'Execute Scalar SQL: INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Alice", "Female", 25) / SELECT @@Identity AS id success !',
           records: [{ id: 5 }]
         });
+
+        next();
       });
   });
 
-  it('query', function (){
+  it('query', function (next){
     connection
       .query('SELECT * FROM Users')
       .on('done', function (data){
@@ -68,6 +72,8 @@ describe('ADODB', function (){
             }
           ]
         });
+
+        next();
       });
   });
 });
