@@ -1,5 +1,10 @@
-var ADODB = require('../index'),
+var fs = require('fs'),
+  ADODB = require('../index'),
   expect = require('expect.js');
+
+var mdb = fs.readFileSync('../examples/node-adodb.mdb');
+
+fs.writeFileSync('node-adodb.mdb', mdb);
 
 describe('ADODB', function (){
   // Variable declaration
