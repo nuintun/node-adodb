@@ -22,6 +22,10 @@ describe('ADODB', function (){
         });
 
         next();
+      }).on('fail', function (error){
+        expect(error).to.have.key('valid');
+
+        next();
       });
   });
 
@@ -34,6 +38,10 @@ describe('ADODB', function (){
           message: 'Execute Scalar SQL: INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Alice", "Female", 25) / SELECT @@Identity AS id success !',
           records: [{ id: 5 }]
         });
+
+        next();
+      }).on('fail', function (error){
+        expect(error).to.have.key('valid');
 
         next();
       });
@@ -79,6 +87,10 @@ describe('ADODB', function (){
             }
           ]
         });
+
+        next();
+      }).on('fail', function (error){
+        expect(error).to.have.key('valid');
 
         next();
       });
