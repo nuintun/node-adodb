@@ -31,7 +31,9 @@
   "dependencies": {
     "colors": "^1.1.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "expect.js": "^0.3.1"
+  },
   "readmeFilename": "README.md",
   "scripts": {
     "test": "mocha --check-leaks --reporter spec --bail",
