@@ -32,5 +32,10 @@
     "colors": "^1.1.0"
   },
   "devDependencies": {},
-  "readmeFilename": "README.md"
+  "readmeFilename": "README.md",
+  "scripts": {
+    "test": "mocha --check-leaks --reporter spec --bail",
+    "test-ci": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --check-leaks --reporter spec",
+    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --check-leaks --reporter dot"
+  }
 }
