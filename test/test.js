@@ -3,13 +3,14 @@ var fs = require('fs'),
   ADODB = require('../index'),
   expect = require('expect.js');
 
-var mdb = fs.readFileSync(path.join(__dirname, '../examples/node-adodb.mdb'));
+var source = path.join(__dirname, 'node-adodb.mdb'),
+  mdb = fs.readFileSync(path.join(__dirname, '../examples/node-adodb.mdb'));
 
-fs.writeFileSync(path.join(__dirname, 'node-adodb.mdb'), mdb);
+fs.writeFileSync(source, mdb);
 
 describe('ADODB', function (){
   // Variable declaration
-  var connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-adodb.mdb;');
+  var connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=' + source + ';');
 
   it('execute', function (next){
     connection
