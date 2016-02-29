@@ -1,6 +1,6 @@
 {
   "name": "node-adodb",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "main": "index.js",
   "license": "MIT",
   "keywords": [
@@ -29,7 +29,7 @@
     "url": "https://github.com/nuintun/node-adodb.git"
   },
   "dependencies": {
-    "colors": "^1.1.0"
+    "colors": "^1.1.2"
   },
   "devDependencies": {
     "expect.js": "^0.3.1"
