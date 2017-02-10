@@ -5,6 +5,7 @@ node-adodb
 >[![NPM Version][npm-image]][npm-url]
 >[![Download Status][download-image]][npm-url]
 >[![Windows Status][appveyor-image]][appveyor-url]
+>[![Test Coverage][coveralls-image]][coveralls-url]
 >[![Dependencies][david-image]][david-url]
 
 ###安装
@@ -82,5 +83,7 @@ connection
 [download-image]: https://img.shields.io/npm/dm/node-adodb.svg?style=flat-square
 [appveyor-image]: https://img.shields.io/appveyor/ci/nuintun/node-adodb.svg?style=flat-square&label=windows
 [appveyor-url]: https://ci.appveyor.com/project/nuintun/node-adodb
+[coveralls-image]: http://img.shields.io/coveralls/nuintun/node-adodb/master.svg?style=flat-square
+[coveralls-url]: https://coveralls.io/r/nuintun/node-adodb?branch=master
 [david-image]: https://img.shields.io/david/nuintun/node-adodb.svg?style=flat-square
 [david-url]: https://david-dm.org/nuintun/node-adodb
