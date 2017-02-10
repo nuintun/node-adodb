@@ -27,7 +27,7 @@ if (fs.existsSync(cscript)) {
         .on('done', function(data) {
           expect(data).to.eql({
             valid: true,
-            message: 'Execute SQL: INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Nuintun", "Male", 25) success !'
+            message: 'INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Nuintun", "Male", 25) success'
           });
 
           next();
@@ -44,7 +44,7 @@ if (fs.existsSync(cscript)) {
         .on('done', function(data) {
           expect(data).to.eql({
             valid: true,
-            message: 'Execute Scalar SQL: INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Alice", "Female", 25) / SELECT @@Identity AS id success !',
+            message: 'INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Alice", "Female", 25) / SELECT @@Identity AS id success',
             records: [{ id: 5 }]
           });
 
@@ -62,7 +62,7 @@ if (fs.existsSync(cscript)) {
         .on('done', function(data) {
           expect(data).to.eql({
             valid: true,
-            message: 'Execute SQL: SELECT * FROM Users success !',
+            message: 'SELECT * FROM Users success',
             records: [
               {
                 UserId: 1,
