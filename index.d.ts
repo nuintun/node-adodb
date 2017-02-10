@@ -1,12 +1,10 @@
 declare module 'node-adodb' {
-  let debug: boolean;
-  let open: (connection: string) => adodb.adodb;
+  let open: (connection: string) => ADODB.ADODB;
 
-  namespace adodb {
-    export interface adodb {
-      execute(sql: string): Execute;
+  namespace ADODB {
+    export interface ADODB {
+      execute(sql: string, scalar?: string): Execute;
       query(sql: string): Query;
-      executeScalar(sql: string, scalar: string): ExecuteScalar;
     }
 
     interface IData {
@@ -21,18 +19,17 @@ declare module 'node-adodb' {
     }
 
     class Execute {
-      on(event: 'done', cm: (data: IData) => void): Execute;
-      on(event: 'fail', cm: (error: IFail) => void): Execute;
+      on(event: 'done', fn: (data: IData) => void): Execute;
+      on(event: 'fail', fn: (error: IFail) => void): Execute;
+      off(event: 'done', fn?: (data: IData) => void): Execute;
+      off(event: 'fail', fn?: (error: IFail) => void): Execute;
     }
 
     class Query {
-      on(event: 'done', cm: (data: IData) => void): Query;
-      on(event: 'fail', cm: (error: IFail) => void): Query;
-    }
-
-    class ExecuteScalar {
-      on(event: 'done', cm: (data: IData) => void): ExecuteScalar;
-      on(event: 'fail', cm: (error: IFail) => void): ExecuteScalar;
+      on(event: 'done', fn: (data: IData) => void): Query;
+      on(event: 'fail', fn: (error: IFail) => void): Query;
+      off(event: 'done', fn?: (data: IData) => void): Query;
+      off(event: 'fail', fn?: (error: IFail) => void): Query;
     }
   }
 }
