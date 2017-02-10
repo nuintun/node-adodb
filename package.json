@@ -30,7 +30,8 @@
   },
   "dependencies": {
     "arch": "^2.1.0",
-    "colors": "^1.1.2"
+    "colors": "^1.1.2",
+    "debug": "^2.6.0"
   },
   "devDependencies": {
     "expect.js": "^0.3.1",
