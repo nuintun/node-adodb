@@ -14,5 +14,5 @@ var connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-a
 connection
   .query('SELECT * FROM Users')
   .on('done', function (data) {
-    console.log(JSON.stringify(data, null, '  '));
+    console.log(JSON.stringify(data, null, 2));
   });

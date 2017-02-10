@@ -25,7 +25,7 @@ process.env.DEBUG = 'ADODB';
 connection
   .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)')
   .on('done', function(data) {
-    console.log('Result:'.green.bold, JSON.stringify(data, null, '  ').bold);
+    console.log('result:', JSON.stringify(data, null, 2));
   })
   .on('fail', function(data) {
     // TODO something
@@ -38,7 +38,7 @@ connection
     'SELECT @@Identity AS id'
   )
   .on('done', function(data) {
-    console.log('Result:'.green.bold, JSON.stringify(data, null, '  ').bold);
+    console.log('result:', JSON.stringify(data, null, 2));
   })
   .on('fail', function(data) {
     // TODO something
@@ -48,7 +48,7 @@ connection
 connection
   .query('SELECT * FROM Users')
   .on('done', function(data) {
-    console.log('Result:'.green.bold, JSON.stringify(data, null, '  ').bold);
+    console.log('result:', JSON.stringify(data, null, 2));
   })
   .on('fail', function(data) {
     // TODO something

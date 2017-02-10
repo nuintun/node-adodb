@@ -14,5 +14,5 @@ process.env.DEBUG = 'ADODB';
 connection
   .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)')
   .on('done', function (data) {
-    console.log(JSON.stringify(data, null, '  '));
+    console.log(JSON.stringify(data, null, 2));
   });
