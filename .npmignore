@@ -17,3 +17,6 @@ node_modules
 
 # test
 test
+
+# adodb dev src
+lib/adodb
