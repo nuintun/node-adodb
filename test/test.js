@@ -38,7 +38,7 @@ if (fs.existsSync(cscript)) {
         });
     });
 
-    it('executeScalar', function(next) {
+    it('scalar', function(next) {
       connection
         .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Alice", "Female", 25)', 'SELECT @@Identity AS id')
         .on('done', function(data) {
