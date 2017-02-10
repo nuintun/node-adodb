@@ -1,0 +1,36 @@
+environment:
+  matrix:
+    - nodejs_version: "0.10"
+    - nodejs_version: "0.11"
+    - nodejs_version: "0.12"
+    - nodejs_version: "1.8"
+    - nodejs_version: "2.5"
+    - nodejs_version: "3.3"
+    - nodejs_version: "4.2"
+    - nodejs_version: "5.3"
+    - nodejs_version: "6.2"
+    - nodejs_version: "6.3"
+    - nodejs_version: "6.5"
+    - nodejs_version: "6.6"
+    - nodejs_version: "7.0"
+    - nodejs_version: "7.1"
+    - nodejs_version: "7.2"
+    - nodejs_version: "7.3"
+    - nodejs_version: "7.4"
+    - nodejs_version: "7.5"
+platform:
+  - x86
+  - x64
+install:
+  - ps: Install-Product node $env:nodejs_version
+  - npm install
+  - npm install mocha
+  - npm install istanbul
+build: off
+test_script:
+  - node --version
+  - npm --version
+  - set npm_test_command=test
+  - for /f %%l in ('npm -ps ls istanbul') do set npm_test_command=test-ci
+  - npm run %npm_test_command%
+version: "{build}"
