@@ -21,7 +21,7 @@ ADODB.prototype = {
     var command = 'execute';
 
     if (utils.isString(scalar)) {
-      command = 'executeScalar';
+      command = 'scalar';
       params.scalar = scalar;
     }
 
