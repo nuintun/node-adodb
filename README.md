@@ -15,61 +15,55 @@ $ npm install node-adodb
 
 ###使用示例:
 ```js
-var ADODB = require('node-adodb'),
-  connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-adodb.mdb;');
+var ADODB = require('node-adodb');
+var connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-adodb.mdb;');
 
 // 全局调试开关，默认关闭
-ADODB.debug = true;
+process.env.DEBUG = 'ADODB';
 
 // 不带返回的查询
 connection
   .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)')
-  .on('done', function (data){
+  .on('done', function(data) {
     console.log('Result:'.green.bold, JSON.stringify(data, null, '  ').bold);
   })
-  .on('fail', function (data){
+  .on('fail', function(data) {
     // TODO 逻辑处理
   });
 
 // 带返回标识的查询
 connection
-  .executeScalar(
+  .execute(
     'INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)',
     'SELECT @@Identity AS id'
   )
-  .on('done', function (data){
+  .on('done', function(data) {
     console.log('Result:'.green.bold, JSON.stringify(data, null, '  ').bold);
   })
-  .on('fail', function (data){
+  .on('fail', function(data) {
     // TODO 逻辑处理
   });
 
 // 带返回的查询
 connection
   .query('SELECT * FROM Users')
-  .on('done', function (data){
+  .on('done', function(data) {
     console.log('Result:'.green.bold, JSON.stringify(data, null, '  ').bold);
   })
-  .on('fail', function (data){
+  .on('fail', function(data) {
     // TODO 逻辑处理
   });
 ```
 
 ###接口文档:
-`ADODB.debug`
->全局调试开关。
-
 `ADODB.open(connection)`
 >初始化数据库链接参数。
 
 `ADODB.query(sql)`
 >执行有返回值的SQL语句。
 
-`ADODB.execute(sql)`
->执行无返回值的SQL语句。
-
-`ADODB.executeScalar(sql, scalar)`
->执行带返回标识的SQL语句。
+`ADODB.execute(sql, [scalar])`
+>执行无返回值或者带更新统计的的SQL语句。
 
 ###扩展:
 >该插件理论支持 Windows 平台下所有支持 ADODB 连接的数据库，只需要更改数据库连接字符串即可实现操作！
