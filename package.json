@@ -39,8 +39,8 @@
   },
   "readmeFilename": "README.md",
   "scripts": {
-    "test": "mocha --check-leaks --reporter spec --bail",
-    "test-ci": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --check-leaks --reporter spec",
-    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --check-leaks --reporter dot"
+    "test": "mocha --timeout 6000 --check-leaks --reporter spec --bail",
+    "test-ci": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --check-leaks --reporter spec --timeout 6000",
+    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --check-leaks --reporter dot --timeout 6000"
   }
 }
