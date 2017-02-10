@@ -1,46 +1,47 @@
-var fs = require('fs'),
-  path = require('path'),
-  ADODB = require('../index'),
-  expect = require('expect.js');
+var fs = require('fs');
+var path = require('path');
+var arch = require('arch');
+var ADODB = require('../index');
+var expect = require('expect.js');
 
-var source = path.join(__dirname, 'node-adodb.mdb'),
-  mdb = fs.readFileSync(path.join(__dirname, '../examples/node-adodb.mdb'));
+var source = path.join(__dirname, 'node-adodb.mdb');
+var mdb = fs.readFileSync(path.join(__dirname, '../examples/node-adodb.mdb'));
 
 fs.writeFileSync(source, mdb);
 
-// Variable declaration
-var sysroot = process.env['systemroot'] || process.env['windir'],
-  x64 = fs.existsSync(path.join(sysroot, 'SysWOW64')),
-  cscript = path.join(sysroot, x64 ? 'SysWOW64' : 'System32', 'cscript.exe');
+// variable declaration
+var x64 = arch() === 'x64';
+var sysroot = process.env['systemroot'] || process.env['windir'];
+var cscript = path.join(sysroot, x64 ? 'SysWOW64' : 'System32', 'cscript.exe');
 
 if (fs.existsSync(cscript)) {
   console.log('Use', cscript);
 
-  describe('ADODB', function (){
-    // Variable declaration
+  describe('ADODB', function() {
+    // variable declaration
     var connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=' + source + ';');
 
-    it('execute', function (next){
+    it('execute', function(next) {
       connection
         .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Nuintun", "Male", 25)')
-        .on('done', function (data){
+        .on('done', function(data) {
           expect(data).to.eql({
             valid: true,
             message: 'Execute SQL: INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Nuintun", "Male", 25) success !'
           });
 
           next();
-        }).on('fail', function (error){
+        }).on('fail', function(error) {
           expect(error).to.have.key('valid');
 
           next();
         });
     });
 
-    it('executeScalar', function (next){
+    it('executeScalar', function(next) {
       connection
-        .executeScalar('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Alice", "Female", 25)', 'SELECT @@Identity AS id')
-        .on('done', function (data){
+        .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Alice", "Female", 25)', 'SELECT @@Identity AS id')
+        .on('done', function(data) {
           expect(data).to.eql({
             valid: true,
             message: 'Execute Scalar SQL: INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Alice", "Female", 25) / SELECT @@Identity AS id success !',
@@ -48,17 +49,17 @@ if (fs.existsSync(cscript)) {
           });
 
           next();
-        }).on('fail', function (error){
+        }).on('fail', function(error) {
           expect(error).to.have.key('valid');
 
           next();
         });
     });
 
-    it('query', function (next){
+    it('query', function(next) {
       connection
         .query('SELECT * FROM Users')
-        .on('done', function (data){
+        .on('done', function(data) {
           expect(data).to.eql({
             valid: true,
             message: 'Execute SQL: SELECT * FROM Users success !',
@@ -97,7 +98,7 @@ if (fs.existsSync(cscript)) {
           });
 
           next();
-        }).on('fail', function (error){
+        }).on('fail', function(error) {
           expect(error).to.have.key('valid');
 
           next();
