@@ -1,4 +1,4 @@
 @echo off
 echo node-adodb examples:
-node executeScalar.js
+node scalar.js
 pause
