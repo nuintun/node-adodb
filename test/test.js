@@ -24,15 +24,13 @@ if (fs.existsSync(cscript)) {
     it('execute', function(next) {
       connection
         .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Nuintun", "Male", 25)')
-        .on('done', function(data) {
-          expect(data).to.eql({
-            valid: true,
-            message: 'INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Nuintun", "Male", 25) success'
-          });
+        .on('done', function(data, message) {
+          expect(data).to.eql([]);
+          expect(message).to.eql('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Nuintun", "Male", 25) success');
 
           next();
         }).on('fail', function(error) {
-          expect(error).to.have.key('valid');
+          console.log(error);
 
           next();
         });
@@ -41,16 +39,13 @@ if (fs.existsSync(cscript)) {
     it('scalar', function(next) {
       connection
         .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Alice", "Female", 25)', 'SELECT @@Identity AS id')
-        .on('done', function(data) {
-          expect(data).to.eql({
-            valid: true,
-            message: 'INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Alice", "Female", 25) / SELECT @@Identity AS id success',
-            records: [{ id: 5 }]
-          });
+        .on('done', function(data, message) {
+          expect(data).to.eql([{ id: 5 }]);
+          expect(message).to.eql('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Alice", "Female", 25) / SELECT @@Identity AS id success');
 
           next();
         }).on('fail', function(error) {
-          expect(error).to.have.key('valid');
+          console.log(error);
 
           next();
         });
@@ -59,11 +54,9 @@ if (fs.existsSync(cscript)) {
     it('query', function(next) {
       connection
         .query('SELECT * FROM Users')
-        .on('done', function(data) {
-          expect(data).to.eql({
-            valid: true,
-            message: 'SELECT * FROM Users success',
-            records: [
+        .on('done', function(data, message) {
+          expect(data).to.eql(
+            [
               {
                 UserId: 1,
                 UserName: "Nuintun",
@@ -95,11 +88,12 @@ if (fs.existsSync(cscript)) {
                 UserAge: 25
               }
             ]
-          });
+          );
+          expect(message).to.eql('SELECT * FROM Users success');
 
           next();
         }).on('fail', function(error) {
-          expect(error).to.have.key('valid');
+          console.log(error);
 
           next();
         });

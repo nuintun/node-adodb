@@ -7,29 +7,22 @@ declare module 'node-adodb' {
       query(sql: string): Query;
     }
 
-    interface IData {
-      valid: boolean;
-      message: string;
-      records: Array<any>;
-    }
-
-    interface IFail {
-      valid: boolean;
-      message: string;
-    }
-
     class Execute {
-      on(event: 'done', fn: (data: IData) => void): Execute;
-      on(event: 'fail', fn: (error: IFail) => void): Execute;
-      off(event: 'done', fn?: (data: IData) => void): Execute;
-      off(event: 'fail', fn?: (error: IFail) => void): Execute;
+      on(event: 'done', fn: (data: Array<any>, message: string) => void, context?: any): Execute;
+      on(event: 'fail', fn: (error: string) => void, context?: any): Execute;
+      off(event: 'done', fn?: (data: Array<any>, message: string) => void, context?: any): Execute;
+      off(event: 'fail', fn?: (error: string) => void, context?: any): Execute;
+      once(event: 'done', fn?: (data: Array<any>, message: string) => void, context?: any): Execute;
+      once(event: 'fail', fn?: (error: string) => void, context?: any): Execute;
     }
 
     class Query {
-      on(event: 'done', fn: (data: IData) => void): Query;
-      on(event: 'fail', fn: (error: IFail) => void): Query;
-      off(event: 'done', fn?: (data: IData) => void): Query;
-      off(event: 'fail', fn?: (error: IFail) => void): Query;
+      on(event: 'done', fn: (data: Array<any>, message: string) => void, context?: any): Query;
+      on(event: 'fail', fn: (error: string) => void, context?: any): Query;
+      off(event: 'done', fn?: (data: Array<any>, message: string) => void, context?: any): Query;
+      off(event: 'fail', fn?: (error: string) => void, context?: any): Query;
+      once(event: 'done', fn?: (data: Array<any>, message: string) => void, context?: any): Query;
+      once(event: 'fail', fn?: (error: string) => void, context?: any): Query;
     }
   }
 }

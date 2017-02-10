@@ -27,7 +27,7 @@ connection
   .on('done', function(data) {
     console.log('result:', JSON.stringify(data, null, 2));
   })
-  .on('fail', function(data) {
+  .on('fail', function(error) {
     // TODO something
   });
 
@@ -40,7 +40,7 @@ connection
   .on('done', function(data) {
     console.log('result:', JSON.stringify(data, null, 2));
   })
-  .on('fail', function(data) {
+  .on('fail', function(error) {
     // TODO something
   });
 
@@ -50,7 +50,7 @@ connection
   .on('done', function(data) {
     console.log('result:', JSON.stringify(data, null, 2));
   })
-  .on('fail', function(data) {
+  .on('fail', function(error) {
     // TODO something
   });
 ```
