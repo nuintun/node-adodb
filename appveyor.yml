@@ -33,4 +33,6 @@ test_script:
   - set npm_test_command=test
   - for /f %%l in ('npm -ps ls istanbul') do set npm_test_command=test-ci
   - npm run %npm_test_command%
+  - npm install coveralls
+  - cat ./coverage/lcov.info | coveralls
 version: "{build}"
