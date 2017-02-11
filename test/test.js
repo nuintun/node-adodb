@@ -16,7 +16,7 @@ var cscript = path.join(sysroot, x64 ? 'SysWOW64' : 'System32', 'cscript.exe');
 
 var env = {};
 
-Object.keys(process.env, function(key) {
+Object.keys(process.env).forEach(function(key) {
   if (key !== 'COVERALLS_REPO_TOKEN') {
     env[key] = process.env[key];
   }
