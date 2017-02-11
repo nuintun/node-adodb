@@ -32,5 +32,5 @@ test_script:
   - npm --version
   - npm run test-ci
   - npm install coveralls
-  - type ./coverage/lcov.info | node ./node_modules/coveralls/bin/coveralls.js
+  - type .\coverage\lcov.info | node ./node_modules/coveralls/bin/coveralls.js
 version: "{build}"

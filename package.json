@@ -40,7 +40,7 @@
   "readmeFilename": "README.md",
   "scripts": {
     "test": "mocha --timeout 6000 --check-leaks --reporter spec --bail",
-    "test-ci": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --timeout 6000 --check-leaks --reporter spec",
-    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --timeout 6000 --check-leaks --reporter dot"
+    "test-ci": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- --timeout 6000 --check-leaks --reporter spec",
+    "test-cov": "istanbul cover ./node_modules/mocha/bin/_mocha -- --timeout 6000 --check-leaks --reporter dot"
   }
 }
