@@ -14,9 +14,13 @@ var x64 = arch() === 'x64';
 var sysroot = process.env['systemroot'] || process.env['windir'];
 var cscript = path.join(sysroot, x64 ? 'SysWOW64' : 'System32', 'cscript.exe');
 
-var env = Object.assign({}, process.env);
+var env = {};
 
-delete env['COVERALLS_REPO_TOKEN'];
+Object.keys(process.env, function(key) {
+  if (key !== 'COVERALLS_REPO_TOKEN') {
+    env[key] = process.env[key];
+  }
+});
 
 console.log(JSON.stringify(env, null, 2));
 console.log();
