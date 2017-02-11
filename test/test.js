@@ -14,6 +14,13 @@ var x64 = arch() === 'x64';
 var sysroot = process.env['systemroot'] || process.env['windir'];
 var cscript = path.join(sysroot, x64 ? 'SysWOW64' : 'System32', 'cscript.exe');
 
+var env = Object.assign({}, process.env);
+
+delete env['COVERALLS_REPO_TOKEN'];
+
+console.log(JSON.stringify(env, null, 2));
+console.log();
+
 if (fs.existsSync(cscript)) {
   console.log('Use', cscript);
 
