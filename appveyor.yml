@@ -22,6 +22,9 @@ environment:
 platform:
   - x86
   - x64
+cache:
+  - node_modules # local npm modules
+  - '%APPDATA%\npm-cache' # npm cache
 install:
   - ps: Install-Product node $env:nodejs_version
   - npm install
