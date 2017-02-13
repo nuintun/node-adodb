@@ -35,6 +35,7 @@ if (fs.existsSync(cscript)) {
       .off()
       .once('done', fn);
 
+    query.on('custom', fn);
     query.emit('custom');
     query.emit('custom', 1);
     query.emit('custom', 1, 2);
