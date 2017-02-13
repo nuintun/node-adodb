@@ -21,6 +21,25 @@ if (fs.existsSync(cscript)) {
     // variable declaration
     var connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=' + source + ';');
 
+    var query = connection.query('SELECT * FROM Users');
+
+    function fn() {
+
+    }
+
+    // coveralls cover
+    query
+      .on('done', fn)
+      .off('done', fn)
+      .off('done')
+      .off()
+      .once('done', fn)
+      .emit('custom')
+      .emit('custom', 1)
+      .emit('custom', 1, 2)
+      .emit('custom', 1, 2, 3)
+      .emit('custom', 1, 2, 3, 4)
+
     it('execute', function(next) {
       connection
         .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Nuintun", "Male", 25)')
