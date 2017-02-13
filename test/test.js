@@ -23,9 +23,8 @@ if (fs.existsSync(cscript)) {
 
     var query = connection.query('SELECT * FROM Users');
 
-    function fn() {
-
-    }
+    // noop function
+    function fn() {}
 
     // coveralls cover
     query
