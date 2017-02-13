@@ -33,12 +33,13 @@ if (fs.existsSync(cscript)) {
       .off('done', fn)
       .off('done')
       .off()
-      .once('done', fn)
-      .emit('custom')
-      .emit('custom', 1)
-      .emit('custom', 1, 2)
-      .emit('custom', 1, 2, 3)
-      .emit('custom', 1, 2, 3, 4)
+      .once('done', fn);
+
+    query.emit('custom');
+    query.emit('custom', 1);
+    query.emit('custom', 1, 2);
+    query.emit('custom', 1, 2, 3);
+    query.emit('custom', 1, 2, 3, 4);
 
     it('execute', function(next) {
       connection
