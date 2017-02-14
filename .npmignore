@@ -26,3 +26,6 @@ lib/adodb
 
 # rollup
 rollup.js
+
+# test mdb
+test/node-adodb.mdb
