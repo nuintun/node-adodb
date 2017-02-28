@@ -41,36 +41,6 @@ if (fs.existsSync(cscript)) {
     query.emit('custom', 1, 2, 3);
     query.emit('custom', 1, 2, 3, 4);
 
-    it('execute', function(next) {
-      connection
-        .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Nuintun", "Male", 25)')
-        .on('done', function(data, message) {
-          expect(data).to.eql([]);
-          expect(message).to.eql('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Nuintun", "Male", 25) success');
-
-          next();
-        }).on('fail', function(error) {
-          console.log(error);
-
-          next();
-        });
-    });
-
-    it('scalar', function(next) {
-      connection
-        .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Alice", "Female", 25)', 'SELECT @@Identity AS id')
-        .on('done', function(data, message) {
-          expect(data).to.eql([{ id: 5 }]);
-          expect(message).to.eql('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Alice", "Female", 25) / SELECT @@Identity AS id success');
-
-          next();
-        }).on('fail', function(error) {
-          console.log(error);
-
-          next();
-        });
-    });
-
     it('query', function(next) {
       connection
         .query('SELECT * FROM Users')
@@ -94,18 +64,6 @@ if (fs.existsSync(cscript)) {
                 UserName: "Newton",
                 UserSex: "Male",
                 UserAge: 25
-              },
-              {
-                UserId: 4,
-                UserName: "Nuintun",
-                UserSex: "Male",
-                UserAge: 25
-              },
-              {
-                UserId: 5,
-                UserName: "Alice",
-                UserSex: "Female",
-                UserAge: 25
               }
             ]
           );
@@ -113,9 +71,33 @@ if (fs.existsSync(cscript)) {
 
           next();
         }).on('fail', function(error) {
-          console.log(error);
+          next(error);
+        });
+    });
+
+    it('execute', function(next) {
+      connection
+        .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Nuintun", "Male", 25)')
+        .on('done', function(data, message) {
+          expect(data).to.eql([]);
+          expect(message).to.eql('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Nuintun", "Male", 25) success');
 
           next();
+        }).on('fail', function(error) {
+          next(error);
+        });
+    });
+
+    it('scalar', function(next) {
+      connection
+        .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Alice", "Female", 25)', 'SELECT @@Identity AS id')
+        .on('done', function(data, message) {
+          expect(data).to.eql([{ id: 5 }]);
+          expect(message).to.eql('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Alice", "Female", 25) / SELECT @@Identity AS id success');
+
+          next();
+        }).on('fail', function(error) {
+          next(error);
         });
     });
   });
