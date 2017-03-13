@@ -22,7 +22,7 @@ rollup.rollup({
   result = uglify.minify(result.code, {
     fromString: true,
     compress: { screw_ie8: false },
-    mangle: { screw_ie8: false },
+    mangle: { screw_ie8: false, eval: true },
     output: { screw_ie8: false }
   });
 
