@@ -15,8 +15,8 @@ var sysroot = process.env['systemroot'] || process.env['windir'];
 var cscript = path.join(sysroot, x64 ? 'SysWOW64' : 'System32', 'cscript.exe');
 
 if (fs.existsSync(cscript) && fs.existsSync(source)) {
-  console.log('Use', cscript);
-  console.log('Database', source);
+  console.log('Use:', cscript);
+  console.log('Database:', source);
 
   describe('ADODB', function() {
     // variable declaration
