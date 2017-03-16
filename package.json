@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "expect.js": "^0.3.1",
-    "rollup": "^0.41.5",
+    "rollup": "^0.41.6",
     "uglify-js": "^2.8.12"
   },
   "readmeFilename": "README.md",
