@@ -8,12 +8,12 @@ node-adodb
 >[![Test Coverage][coveralls-image]][coveralls-url]
 >[![Dependencies][david-image]][david-url]
 
-###Install
+### Install
 ```
 $ npm install node-adodb
 ```
 
-###Introduction:
+### Introduction:
 ```js
 var ADODB = require('node-adodb');
 var connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-adodb.mdb;');
@@ -55,7 +55,7 @@ connection
   });
 ```
 
-###API:
+### API:
 `ADODB.open(connection)`
 >Initialization database link parameters.
 
@@ -65,10 +65,10 @@ connection
 `ADODB.execute(sql, [scalar])`
 >Execute a SQL statement with no return value or with updated statistics.
 
-###Extension:
+### Extension:
 >The plug-in theoretical support under the platform of Windows all support the ADODB connection database, only need to change the database connection string operation can be realized!
 
-###Notes:
+### Notes:
 >The plug-in need system support for Microsoft.Jet.OLEDB.4.0, Windows XP SP2 above support system default, other need to upgrade their specific operation process, please refer to:
 [How to obtain the Microsoft Jet 4 database engine of the new Service Pack](http://support2.microsoft.com/kb/239114/en-us)
 
