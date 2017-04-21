@@ -8,12 +8,12 @@
 >[![Test Coverage][coveralls-image]][coveralls-url]
 >[![Dependencies][david-image]][david-url]
 
-###安装
+### 安装
 ```
 $ npm install node-adodb
 ```
 
-###使用示例:
+### 使用示例:
 ```js
 var ADODB = require('node-adodb');
 var connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-adodb.mdb;');
@@ -55,7 +55,7 @@ connection
   });
 ```
 
-###接口文档:
+### 接口文档:
 `ADODB.open(connection)`
 >初始化数据库链接参数。
 
@@ -65,10 +65,10 @@ connection
 `ADODB.execute(sql, [scalar])`
 >执行无返回值或者带更新统计的的SQL语句。
 
-###扩展:
+### 扩展:
 >该插件理论支持 Windows 平台下所有支持 ADODB 连接的数据库，只需要更改数据库连接字符串即可实现操作！
 
-###注意:
+### 注意:
 >该插件需要系统支持 Microsoft.Jet.OLEDB.4.0，对于 Windows XP SP2 以上系统默认支持，其它需要自己升级，具体操作过程请参考：
 [如何获取 Microsoft Jet 4.0 数据库引擎的最新 Service Pack](http://support.microsoft.com/default.aspx?scid=kb;zh-CN;239114)
 
