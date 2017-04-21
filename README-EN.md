@@ -1,5 +1,5 @@
-node-adodb
-===========
+# node-adodb
+
 >A Node.js JavaScript Client implementing the ADODB protocol.
 >
 >[![NPM Version][npm-image]][npm-url]
