@@ -1,6 +1,6 @@
 {
   "name": "node-adodb",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "main": "index.js",
   "license": "MIT",
   "keywords": [
@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "arch": "^2.1.0",
-    "debug": "^2.6.4"
+    "debug": "^2.6.6"
   },
   "devDependencies": {
     "expect.js": "^0.3.1",
