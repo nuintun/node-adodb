@@ -1,6 +1,6 @@
 # node-adodb
 
->A Node.js JavaScript Client implementing the ADODB protocol.
+>A node.js javaScript client implementing the ADODB protocol on windows.
 >
 >[![NPM Version][npm-image]][npm-url]
 >[![Download Status][download-image]][npm-url]
