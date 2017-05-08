@@ -23,6 +23,7 @@ environment:
     - nodejs_version: "7.7"
     - nodejs_version: "7.8"
     - nodejs_version: "7.9"
+    - nodejs_version: "7.10"
 platform:
   - x86
   - x64
