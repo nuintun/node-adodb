@@ -1,6 +1,6 @@
 {
   "name": "node-adodb",
-  "version": "3.0.4",
+  "version": "3.0.3",
   "main": "index.js",
   "license": "MIT",
   "keywords": [
