@@ -21,9 +21,9 @@ rollup.rollup({
 
   result = uglify.minify(result.code, {
     fromString: true,
-    compress: { screw_ie8: false },
-    mangle: { screw_ie8: false, eval: true },
-    output: { screw_ie8: false }
+    compress: { ie8: true },
+    mangle: { ie8: true, eval: true },
+    output: { ie8: true }
   });
 
   fs.writeFileSync(min, result.code);
