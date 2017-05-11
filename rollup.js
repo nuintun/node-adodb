@@ -20,7 +20,6 @@ rollup.rollup({
   });
 
   result = uglify.minify(result.code, {
-    fromString: true,
     compress: { ie8: true },
     mangle: { ie8: true, eval: true },
     output: { ie8: true }
