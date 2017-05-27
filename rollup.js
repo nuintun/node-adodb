@@ -8,7 +8,6 @@ rollup.rollup({
   legacy: true,
   entry: 'lib/adodb/main.js',
 }).then(function(bundle) {
-  let stat;
   const min = 'lib/adodb.js';
 
   let result = bundle.generate({
