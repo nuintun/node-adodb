@@ -18,14 +18,11 @@ ADODB.prototype = {
       sql: sql
     };
 
-    var command = 'execute';
-
     if (utils.isString(scalar)) {
-      command = 'scalar';
       params.scalar = scalar;
     }
 
-    return proxy.exec(command, params);
+    return proxy.exec('execute', params);
   },
   query: function(sql) {
     return proxy.exec('query', {

@@ -13,9 +13,7 @@ rollup.rollup({
   let result = bundle.generate({
     format: 'iife',
     indent: true,
-    useStrict: true,
-    moduleId: 'adodb',
-    moduleName: 'ADODB'
+    useStrict: true
   });
 
   result = uglify.minify(result.code, {
