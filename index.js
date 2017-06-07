@@ -2,6 +2,7 @@
 
 var utils = require('./lib/utils');
 var proxy = require('./lib/proxy');
+var fields = require('./lib/fields');
 
 function ADODB(connection) {
   if (!(this instanceof ADODB)) {
@@ -24,14 +25,17 @@ ADODB.prototype = {
 
     return proxy.exec('execute', params);
   },
-  query: function(sql) {
+  query: function(sql, desc) {
     return proxy.exec('query', {
       connection: this.connection,
+      desc: !!desc,
       sql: sql
     });
   }
 }
 
 module.exports = {
-  open: ADODB.bind(ADODB)
+  open: ADODB.bind(ADODB),
+  resolveType: fields.resolveType,
+  resolveAttr: fields.resolveAttr
 };

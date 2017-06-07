@@ -1,10 +1,14 @@
 declare module 'node-adodb' {
   let open: (connection: string) => ADODB.ADODB;
+  let resolveType: (type: number) => ADODB.ADODB;
+  let resolveAttr: (attr: number) => ADODB.ADODB;
 
   namespace ADODB {
     export interface ADODB {
       execute(sql: string, scalar?: string): Execute;
-      query(sql: string): Query;
+      query(sql: string, desc?: boolean): Query;
+      resolveType(type: number): string;
+      resolveAttr(attr: number): object;
     }
 
     class Execute {

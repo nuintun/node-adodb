@@ -59,8 +59,8 @@ connection
 `ADODB.open(connection)`
 >Initialization database link parameters.
 
-`ADODB.query(sql)`
->Execute a SQL statement that returns a value.
+`ADODB.query(sql, [desc])`
+>Execute a SQL statement that returns a value or with field description.
 
 `ADODB.execute(sql, [scalar])`
 >Execute a SQL statement with no return value or with updated statistics.

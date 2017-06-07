@@ -59,8 +59,8 @@ connection
 `ADODB.open(connection)`
 >初始化数据库链接参数。
 
-`ADODB.query(sql)`
->执行有返回值的SQL语句。
+`ADODB.query(sql, [desc])`
+>执行有返回值的SQL语句。如果第二个参数设置成 ```true```，返回值中将包含当前字段的描述（字段大小，类型等等）。
 
 `ADODB.execute(sql, [scalar])`
 >执行无返回值或者带更新统计的的SQL语句。

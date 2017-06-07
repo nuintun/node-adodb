@@ -12,4 +12,7 @@ connection
   .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)', 'SELECT @@Identity AS id')
   .on('done', function(data) {
     console.log('result:', JSON.stringify(data, null, 2));
-  });
+  })
+  .on('fail', function(message) {
+    console.log(message);
+  });;
