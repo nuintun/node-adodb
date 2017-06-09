@@ -12,20 +12,20 @@ declare module 'node-adodb' {
     }
 
     class Execute {
-      on(event: 'done', fn: (data: Array<any>, message: string) => void, context?: any): Execute;
+      on(event: 'done', fn: (data: Array<any>) => void, context?: any): Execute;
       on(event: 'fail', fn: (error: string) => void, context?: any): Execute;
-      off(event: 'done', fn?: (data: Array<any>, message: string) => void, context?: any): Execute;
+      off(event: 'done', fn?: (data: Array<any>) => void, context?: any): Execute;
       off(event: 'fail', fn?: (error: string) => void, context?: any): Execute;
-      once(event: 'done', fn?: (data: Array<any>, message: string) => void, context?: any): Execute;
+      once(event: 'done', fn?: (data: Array<any>) => void, context?: any): Execute;
       once(event: 'fail', fn?: (error: string) => void, context?: any): Execute;
     }
 
     class Query {
-      on(event: 'done', fn: (data: Array<any>, message: string) => void, context?: any): Query;
+      on(event: 'done', fn: (data: Array<any>) => void, context?: any): Query;
       on(event: 'fail', fn: (error: string) => void, context?: any): Query;
-      off(event: 'done', fn?: (data: Array<any>, message: string) => void, context?: any): Query;
+      off(event: 'done', fn?: (data: Array<any>) => void, context?: any): Query;
       off(event: 'fail', fn?: (error: string) => void, context?: any): Query;
-      once(event: 'done', fn?: (data: Array<any>, message: string) => void, context?: any): Query;
+      once(event: 'done', fn?: (data: Array<any>) => void, context?: any): Query;
       once(event: 'fail', fn?: (error: string) => void, context?: any): Query;
     }
   }

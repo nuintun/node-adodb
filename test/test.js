@@ -70,7 +70,7 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
       it('no field description', function(next) {
         connection
           .query('SELECT * FROM Users')
-          .on('done', function(data, message) {
+          .on('done', function(data) {
             expect(data.length).to.eql(3);
             expect(data[0].UserName).to.eql('Nuintun');
             expect(data[2].UserName).to.eql('张三');
@@ -84,7 +84,7 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
       it('with field description', function(next) {
         connection
           .query('SELECT * FROM Users', true)
-          .on('done', function(data, message) {
+          .on('done', function(data) {
             expect(data.length).to.eql(3);
             expect(data[0].UserName.Type).to.eql(202);
             expect(data[0].UserName.Value).to.eql('Nuintun');
@@ -100,7 +100,7 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
       it('no scalar', function(next) {
         connection
           .execute('INSERT INTO Users(UserName, UserSex, UserBirthday, UserMarried) VALUES ("Bill", "Male", "1991/3/9", 0)')
-          .on('done', function(data, message) {
+          .on('done', function(data) {
             expect(data.length).to.eql(0);
 
             next();
@@ -112,7 +112,7 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
       it('with scalar', function(next) {
         connection
           .execute('INSERT INTO Users(UserName, UserSex, UserBirthday, UserMarried) VALUES ("Alice", "Female", "1986/3/9", 0)', 'SELECT @@Identity AS id')
-          .on('done', function(data, message) {
+          .on('done', function(data) {
             expect(data.length).to.eql(1);
             expect(data[0].id).to.eql(5);
 
