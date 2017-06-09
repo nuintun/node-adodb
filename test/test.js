@@ -73,7 +73,7 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
           .on('done', function(data, message) {
             expect(data.length).to.eql(3);
             expect(data[0].UserName).to.eql('Nuintun');
-            expect(message).to.eql('SELECT * FROM Users success');
+            expect(data[2].UserName).to.eql('张三');
 
             next();
           }).on('fail', function(error) {
@@ -88,7 +88,6 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
             expect(data.length).to.eql(3);
             expect(data[0].UserName.Type).to.eql(202);
             expect(data[0].UserName.Value).to.eql('Nuintun');
-            expect(message).to.eql('SELECT * FROM Users success');
 
             next();
           }).on('fail', function(error) {
@@ -100,10 +99,9 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
     describe('execute', function() {
       it('no scalar', function(next) {
         connection
-          .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Nuintun", "Male", 25)')
+          .execute('INSERT INTO Users(UserName, UserSex, UserBirthday, UserMarried) VALUES ("Bill", "Male", "1991/3/9", 0)')
           .on('done', function(data, message) {
-            expect(data).to.eql([]);
-            expect(message).to.eql('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Nuintun", "Male", 25) success');
+            expect(data.length).to.eql(0);
 
             next();
           }).on('fail', function(error) {
@@ -113,10 +111,10 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
 
       it('with scalar', function(next) {
         connection
-          .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Alice", "Female", 25)', 'SELECT @@Identity AS id')
+          .execute('INSERT INTO Users(UserName, UserSex, UserBirthday, UserMarried) VALUES ("Alice", "Female", "1986/3/9", 0)', 'SELECT @@Identity AS id')
           .on('done', function(data, message) {
-            expect(data).to.eql([{ id: 5 }]);
-            expect(message).to.eql('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Alice", "Female", 25) / SELECT @@Identity AS id success');
+            expect(data.length).to.eql(1);
+            expect(data[0].id).to.eql(5);
 
             next();
           }).on('fail', function(error) {
