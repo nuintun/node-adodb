@@ -85,11 +85,11 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
       it('with field schema', function(next) {
         connection
           .query('SELECT * FROM Users', true)
-          .on('done', function(data, desc) {
+          .on('done', function(data, schema) {
             expect(data.length).to.eql(3);
             expect(data[0].UserName).to.eql('Nuintun');
-            expect(desc.UserName.Type).to.eql(202);
-            expect(desc.UserBirthday.Type).to.eql(7);
+            expect(schema.UserName.Type).to.eql(202);
+            expect(schema.UserBirthday.Type).to.eql(7);
 
             next();
           }).on('fail', function(error) {
