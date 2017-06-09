@@ -21,11 +21,11 @@ declare module 'node-adodb' {
     }
 
     class Query {
-      on(event: 'done', fn: (data: Array<any>, desc?: object) => void, context?: any): Query;
+      on(event: 'done', fn: (data: Array<any>, schema?: object) => void, context?: any): Query;
       on(event: 'fail', fn: (error: string) => void, context?: any): Query;
-      off(event: 'done', fn?: (data: Array<any>, desc?: object) => void, context?: any): Query;
+      off(event: 'done', fn?: (data: Array<any>, schema?: object) => void, context?: any): Query;
       off(event: 'fail', fn?: (error: string) => void, context?: any): Query;
-      once(event: 'done', fn?: (data: Array<any>, desc?: object) => void, context?: any): Query;
+      once(event: 'done', fn?: (data: Array<any>, schema?: object) => void, context?: any): Query;
       once(event: 'fail', fn?: (error: string) => void, context?: any): Query;
     }
   }
