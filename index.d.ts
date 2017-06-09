@@ -6,7 +6,7 @@ declare module 'node-adodb' {
   namespace ADODB {
     export interface ADODB {
       execute(sql: string, scalar?: string): Execute;
-      query(sql: string, desc?: boolean): Query;
+      query(sql: string, schema?: boolean): Query;
       resolveType(type: number): string;
       resolveAttr(attr: number): object;
     }

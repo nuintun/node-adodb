@@ -65,8 +65,8 @@ connection
 `ADODB.resolveAttr(attr)`
 >Get field data attribute from attribute number, see [FieldAttributeEnum](https://docs.microsoft.com/en-us/sql/ado/reference/ado-api/datatypeenum).
 
-`ADODB.query(sql, [desc])`
->Execute a SQL statement that returns a value or with field description.
+`ADODB.query(sql, [schema])`
+>Execute a SQL statement that returns a value or with field schema.
 
 `ADODB.execute(sql, [scalar])`
 >Execute a SQL statement with no return value or with updated statistics.

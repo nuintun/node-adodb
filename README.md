@@ -65,7 +65,7 @@ connection
 `ADODB.resolveAttr(attr)`
 >通过属性值获取属性描述，参考 [FieldAttributeEnum](https://docs.microsoft.com/en-us/sql/ado/reference/ado-api/datatypeenum)。
 
-`ADODB.query(sql, [desc])`
+`ADODB.query(sql, [schema])`
 >执行有返回值的SQL语句。如果第二个参数设置成 ```true```，返回值中将包含当前字段的描述（字段大小，类型等等）。
 
 `ADODB.execute(sql, [scalar])`

@@ -25,10 +25,10 @@ ADODB.prototype = {
 
     return proxy.exec('execute', params);
   },
-  query: function(sql, desc) {
+  query: function(sql, schema) {
     return proxy.exec('query', {
       connection: this.connection,
-      desc: !!desc,
+      schema: !!schema,
       sql: sql
     });
   }

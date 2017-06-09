@@ -82,7 +82,7 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
           });
       });
 
-      it('with field description', function(next) {
+      it('with field schema', function(next) {
         connection
           .query('SELECT * FROM Users', true)
           .on('done', function(data, desc) {
