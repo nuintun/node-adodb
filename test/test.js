@@ -73,7 +73,7 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
           .on('done', function(data) {
             expect(data.length).to.eql(3);
             expect(data[0].UserName).to.eql('Nuintun');
-            expect(data[0]).to.have('UserBirthday');
+            expect(data[0]).to.have.key('UserBirthday');
             expect(data[2].UserName).to.eql('张三');
 
             next();
