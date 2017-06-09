@@ -73,6 +73,7 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
           .on('done', function(data) {
             expect(data.length).to.eql(3);
             expect(data[0].UserName).to.eql('Nuintun');
+            expect(data[0].UserBirthday).to.eql('1989-01-24T16:00:00Z');
             expect(data[2].UserName).to.eql('张三');
 
             next();
@@ -88,6 +89,7 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
             expect(data.length).to.eql(3);
             expect(data[0].UserName).to.eql('Nuintun');
             expect(desc.UserName.Type).to.eql(202);
+            expect(desc.UserBirthday.Type).to.eql(7);
 
             next();
           }).on('fail', function(error) {
