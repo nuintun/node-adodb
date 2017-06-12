@@ -49,23 +49,6 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
       query.emit('custom', 1, 2, 3, 4);
     });
 
-    it('resolve type', function(next) {
-      expect(ADODB.resolveType(202)).to.eql('adVarWChar');
-
-      next();
-    });
-
-    it('resolve attribute', function(next) {
-      expect(ADODB.resolveAttr(106)).to.eql({
-        adFldMayDefer: true,
-        adFldUnknownUpdatable: true,
-        adFldIsNullable: true,
-        adFldMayBeNull: true
-      });
-
-      next();
-    });
-
     describe('query', function() {
       it('no field description', function(next) {
         connection
