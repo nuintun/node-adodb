@@ -1,5 +1,5 @@
 # 3.1.0 / 2017-06-12
-- Support fields schema #31 #34
+- Support fields schema [#31](https://github.com/nuintun/node-adodb/issues/31) [#34](https://github.com/nuintun/node-adodb/issues/34)
 - Remove ```message``` param on event ```done```
 
 # 3.0.3 / 2017-05-11
@@ -27,7 +27,7 @@
 - Clean code
 
 # 2.0.0 / 2015-05-31
-- Fixed #10
+- Fixed [#10](https://github.com/nuintun/node-adodb/issues/10)
 
 # 1.3.3 / 2015-05-20
 - Update json.js
