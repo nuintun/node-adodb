@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const rollup = require('rollup');
-const uglify = require('uglify-js');
+const uglify = require('uglify-es');
 
 rollup.rollup({
   legacy: true,
@@ -17,9 +17,9 @@ rollup.rollup({
   });
 
   result = uglify.minify(result.code, {
-    compress: { ie8: true },
-    mangle: { ie8: true, eval: true },
-    output: { ie8: true }
+    ecma: 5,
+    ie8: true,
+    mangle: { eval: true }
   });
 
   fs.writeFileSync(min, result.code);
