@@ -59,12 +59,6 @@ connection
 `ADODB.open(connection)`
 >初始化数据库链接参数。
 
-`ADODB.resolveType(type)`
->通过类型值获取类型描述，参考 [DataTypeEnum](https://docs.microsoft.com/en-us/sql/ado/reference/ado-api/datatypeenum)。
-
-`ADODB.resolveAttr(attr)`
->通过属性值获取属性描述，参考 [FieldAttributeEnum](https://docs.microsoft.com/en-us/sql/ado/reference/ado-api/datatypeenum)。
-
 `ADODB.query(sql, [schema])`
 >执行有返回值的SQL语句。如果第二个参数设置成 ```true```，返回值中将包含当前字段的描述（字段大小，类型等等）。
 
