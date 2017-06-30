@@ -1,6 +1,6 @@
 # node-adodb
 
->一个用 Node.js 实现的 ADODB 协议。
+>一个用 Node.js 实现的 windows 上的 ADODB 协议。
 >
 >[![NPM Version][npm-image]][npm-url]
 >[![Download Status][download-image]][npm-url]
