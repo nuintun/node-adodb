@@ -56,7 +56,7 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
           .on('done', function(data) {
             expect(data.length).to.eql(3);
             expect(data[0].UserName).to.eql('Nuintun');
-            expect(data[0]).to.have.key('UserBirthday');
+            expect(data[0].UserBirthday).to.eql('Wed Jan 25 00:00:00 UTC+0800 1989');
             expect(data[2].UserName).to.eql('张三');
 
             next();
@@ -71,6 +71,7 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
           .on('done', function(data, schema) {
             expect(data.length).to.eql(3);
             expect(data[0].UserName).to.eql('Nuintun');
+            expect(data[0].UserBirthday).to.eql('Wed Jan 25 00:00:00 UTC+0800 1989');
             expect(schema.UserName.Type).to.eql(202);
             expect(schema.UserBirthday.Type).to.eql(7);
 
