@@ -14,16 +14,16 @@ rollup.rollup({
     format: 'iife',
     indent: true,
     useStrict: true
-  });
+  }).then(function(result) {
+    result = uglify.minify(result.code, {
+      ecma: 5,
+      ie8: true,
+      mangle: { eval: true }
+    });
 
-  result = uglify.minify(result.code, {
-    ecma: 5,
-    ie8: true,
-    mangle: { eval: true }
+    fs.writeFileSync(min, result.code);
+    console.log(`  Build ${ min } success!`);
   });
-
-  fs.writeFileSync(min, result.code);
-  console.log(`  Build ${ min } success!`);
 }).catch(function(error) {
   console.error(error);
 });
