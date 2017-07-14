@@ -10,7 +10,7 @@ rollup.rollup({
 }).then(function(bundle) {
   const min = 'lib/adodb.js';
 
-  let result = bundle.generate({
+  bundle.generate({
     format: 'iife',
     indent: true,
     useStrict: true
@@ -23,6 +23,8 @@ rollup.rollup({
 
     fs.writeFileSync(min, result.code);
     console.log(`  Build ${ min } success!`);
+  }).catch(function(error) {
+    console.error(error);
   });
 }).catch(function(error) {
   console.error(error);
