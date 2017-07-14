@@ -7,15 +7,15 @@
 - Update uglify-js
 
 # 3.0.2 / 2017-04-27
-- Remove `executeScalar` and combine it to `execute` method.
-- Use `debug` lib.
-- Use faster `events` lib.
-- Use `encodeURI` instead of `base64` encode.
-- Use new build tools `rollup` build cscript lib.
-- Add `AppVeyor` test and badges.
-- Add `Coveralls` badges.
-- Fixed a fatal error.
-- Better error catch.
+- Remove `executeScalar` and combine it to `execute` method
+- Use `debug` lib
+- Use faster `events` lib
+- Use `encodeURI` instead of `base64` encode
+- Use new build tools `rollup` build cscript lib
+- Add `AppVeyor` test and badges
+- Add `Coveralls` badges
+- Fixed a fatal error
+- Better error catch
 
 # 2.0.3 / 2016-02-29
 - Fixed date parse bug
