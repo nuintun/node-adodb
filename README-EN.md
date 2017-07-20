@@ -66,10 +66,10 @@ connection
 >Execute a SQL statement with no return value or with updated statistics.
 
 ### Extension:
->The plug-in theoretical support under the platform of Windows all support the ADODB connection database, only need to change the database connection string operation can be realized!
+>This library theory supports all databases on the Windows platform that support ADODB connections, and only need to change the database connection string to achieve the operation!
 
 ### Notes:
->The plug-in need system support for Microsoft.Jet.OLEDB.4.0, Windows XP SP2 above support system default, other need to upgrade their specific operation process, please refer to:
+>The library need system support for Microsoft.Jet.OLEDB.4.0, Windows XP SP2 above support system default, other need to upgrade their specific operation process, please refer to:
 [How to obtain the Microsoft Jet 4 database engine of the new Service Pack](http://support2.microsoft.com/kb/239114/en-us)
 
 [npm-image]: https://img.shields.io/npm/v/node-adodb.svg?style=flat-square
