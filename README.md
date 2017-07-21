@@ -21,24 +21,24 @@ var connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-a
 // 全局调试开关，默认关闭
 process.env.DEBUG = 'ADODB';
 
-// 不带返回的查询
+// 不带返回的执行
 connection
   .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)')
   .on('done', function(data) {
-    console.log('result:', JSON.stringify(data, null, '  '));
+    console.log(JSON.stringify(data, null, 2));
   })
   .on('fail', function(error) {
     // TODO 逻辑处理
   });
 
-// 带返回标识的查询
+// 带返回标识的执行
 connection
   .execute(
     'INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)',
     'SELECT @@Identity AS id'
   )
   .on('done', function(data) {
-    console.log('result:', JSON.stringify(data, null, '  '));
+    console.log(JSON.stringify(data, null, 2));
   })
   .on('fail', function(error) {
     // TODO 逻辑处理
@@ -48,7 +48,17 @@ connection
 connection
   .query('SELECT * FROM Users')
   .on('done', function(data) {
-    console.log('result:', JSON.stringify(data, null, '  '));
+    console.log(JSON.stringify(data, null, 2));
+  })
+  .on('fail', function(error) {
+    // TODO 逻辑处理
+  });
+
+// 带字段描述的查询
+connection
+  .query('SELECT * FROM Users', true)
+  .on('done', function(data, schema) {
+    console.log(JSON.stringify(schema, null, 2));
   })
   .on('fail', function(error) {
     // TODO 逻辑处理

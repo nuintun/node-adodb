@@ -21,34 +21,44 @@ var connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-a
 // Global debug switch
 process.env.DEBUG = 'ADODB';
 
-// Without the query returned
+// Without returned execute
 connection
   .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)')
   .on('done', function(data) {
-    console.log('result:', JSON.stringify(data, null, 2));
+    console.log(JSON.stringify(data, null, 2));
   })
   .on('fail', function(error) {
     // TODO something
   });
 
-// With the scalar return of the query
+// With scalar returned of execute
 connection
   .execute(
     'INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)',
     'SELECT @@Identity AS id'
   )
   .on('done', function(data) {
-    console.log('result:', JSON.stringify(data, null, 2));
+    console.log(JSON.stringify(data, null, 2));
   })
   .on('fail', function(error) {
     // TODO something
   });
 
-// With the return of the query
+// With returned of query
 connection
   .query('SELECT * FROM Users')
   .on('done', function(data) {
-    console.log('result:', JSON.stringify(data, null, 2));
+    console.log(JSON.stringify(data, null, 2));
+  })
+  .on('fail', function(error) {
+    // TODO something
+  });
+
+// With returned contains schema of query
+connection
+  .query('SELECT * FROM Users', true)
+  .on('done', function(data, schema) {
+    console.log(JSON.stringify(schema, null, 2));
   })
   .on('fail', function(error) {
     // TODO something

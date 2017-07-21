@@ -12,9 +12,9 @@ var connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-a
 
 // query
 connection
-  .query('SELECT * FROM Users')
-  .on('done', function (data) {
-    console.log(JSON.stringify(data, null, 2));
+  .query('SELECT * FROM Users', true)
+  .on('done', function (data, schema) {
+    console.log(JSON.stringify(schema, null, 2));
   })
   .on('fail', function (message) {
     console.log(message);

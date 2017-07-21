@@ -11,7 +11,7 @@ process.env.DEBUG = 'ADODB';
 connection
   .query('SELECT * FROM Users')
   .on('done', function(data) {
-    console.log('result:', JSON.stringify(data, null, 2));
+    console.log(JSON.stringify(data, null, 2));
   })
   .on('fail', function(message) {
     console.log(message);
