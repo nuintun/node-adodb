@@ -30,12 +30,12 @@
   },
   "dependencies": {
     "arch": "^2.1.0",
-    "debug": "^2.6.8"
+    "debug": "^3.0.0"
   },
   "devDependencies": {
     "expect.js": "^0.3.1",
     "rollup": "^0.45.2",
-    "uglify-es": "^3.0.25"
+    "uglify-es": "^3.0.27"
   },
   "readmeFilename": "README.md",
   "scripts": {
