@@ -1,4 +1,5 @@
-# 3.1.1 / 2017-07-21
+# 3.1.1 / 2017-08-09
+- Update deps
 - Update examples and docs
 
 # 3.1.0 / 2017-06-12
