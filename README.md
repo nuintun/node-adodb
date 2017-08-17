@@ -9,9 +9,7 @@
 >[![Dependencies][david-image]][david-url]
 
 ### 安装
-```
-$ npm install node-adodb
-```
+[![NPM](https://nodei.co/npm/node-adodb.png)](https://nodei.co/npm/node-adodb/)
 
 ### 使用示例:
 ```js
