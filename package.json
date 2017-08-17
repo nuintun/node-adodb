@@ -1,6 +1,6 @@
 {
   "name": "node-adodb",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "main": "index.js",
   "license": "MIT",
   "keywords": [
@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "expect.js": "^0.3.1",
-    "rollup": "^0.45.2",
+    "rollup": "^0.47.6",
     "uglify-es": "^3.0.27"
   },
   "readmeFilename": "README.md",
