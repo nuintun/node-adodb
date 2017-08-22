@@ -13,7 +13,7 @@ rollup.rollup({
   bundle.generate({
     format: 'iife',
     indent: true,
-    useStrict: true
+    strict: true
   }).then(function(result) {
     result = uglify.minify(result.code, {
       ecma: 5,
