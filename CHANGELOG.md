@@ -1,5 +1,6 @@
-# 3.1.2 / 2017-08-22
+# 3.1.2 / 2017-08-23
 - Update deps
+- Update LICENSE
 # 3.1.1 / 2017-08-09
 - Update deps
 - Update examples and docs
