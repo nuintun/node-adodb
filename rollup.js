@@ -6,7 +6,7 @@ const uglify = require('uglify-es');
 
 rollup.rollup({
   legacy: true,
-  entry: 'lib/adodb/main.js',
+  input: 'lib/adodb/main.js',
 }).then(function(bundle) {
   const min = 'lib/adodb.js';
 
