@@ -1,4 +1,4 @@
-# 3.1.2 / 2017-08-23
+# 3.1.2 / 2017-09-04
 - Update deps
 - Update LICENSE
 - Update rollup config
