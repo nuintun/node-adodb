@@ -1,7 +1,8 @@
-# 3.1.2 / 2017-09-04
+# 3.1.2 / 2017-09-13
 - Update deps
 - Update LICENSE
 - Update rollup config
+- Update editorconfig
 # 3.1.1 / 2017-08-09
 - Update deps
 - Update examples and docs
