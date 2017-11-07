@@ -1,3 +1,5 @@
+# 3.1.3 / 2017-09-13
+- Update deps
 # 3.1.2 / 2017-09-13
 - Update deps
 - Update LICENSE
