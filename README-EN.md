@@ -83,7 +83,7 @@ connection
 [npm-image]: https://img.shields.io/npm/v/node-adodb.svg?style=flat-square
 [npm-url]: https://www.npmjs.org/package/node-adodb
 [download-image]: https://img.shields.io/npm/dm/node-adodb.svg?style=flat-square
-[appveyor-image]: https://img.shields.io/appveyor/ci/nuintun/node-adodb.svg?style=flat-square&label=windows
+[appveyor-image]: https://img.shields.io/appveyor/ci/nuintun/node-adodb/master.svg?style=flat-square&label=windows
 [appveyor-url]: https://ci.appveyor.com/project/nuintun/node-adodb
 [coveralls-image]: http://img.shields.io/coveralls/nuintun/node-adodb/master.svg?style=flat-square
 [coveralls-url]: https://coveralls.io/r/nuintun/node-adodb?branch=master
