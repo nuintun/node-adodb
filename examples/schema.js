@@ -1,18 +1,18 @@
 'use strict';
 
 // External lib
-var ADODB = require('../');
+const ADODB = require('../');
 
 // Variable declaration
-var connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-adodb.mdb;');
+const connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-adodb.mdb;');
 
 process.env.DEBUG = 'ADODB';
 
 connection
   .query('SELECT * FROM Users', true)
-  .on('done', function(data, schema) {
+  .then((data, schema) => {
     console.log(JSON.stringify(schema, null, 2));
   })
-  .on('fail', function(message) {
+  .catch((message) => {
     console.log(message);
   });
