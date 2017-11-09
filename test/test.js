@@ -67,7 +67,7 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
       connection
         .query('SELECT * FROM Users-non-exist')
         .catch((error) => {
-          expect(error).to.exist;
+          expect(error).to.be.exist;
           next();
         });
     });
