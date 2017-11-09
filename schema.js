@@ -1,38 +1,21 @@
 'use strict';
 
-const connection = new ActiveXObject('ADODB.Connection');
+// External lib
+const ADODB = require('./');
 
-// Open
-connection.Open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-adodb.mdb;');
+// Variable declaration
+const connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-adodb.mdb;');
 
-const recordset = connection.OpenSchema(4);
-const fields = recordset.Fields;
-const fieldsCount = fields.Count;
+process.env.DEBUG = 'ADODB';
 
-// not empty
-if (!recordset.BOF || !recordset.EOF) {
-  recordset.MoveFirst();
+async function query() {
+  try {
+    const result = await connection.schema(4);
 
-  while (!recordset.EOF) {
-    for (let i = 0; i < fieldsCount; i++) {
-      let field = fields.Item(i);
-      let value = field.Value;
-
-      // ADO has given us a UTC date but JScript assumes it's a local timezone date
-      // thanks https://github.com/Antony74
-      if (typeof(value) === 'date') {
-        value = String(value);
-      }
-
-      value !== null && stdout(field.Name + ' -- ' + value);
-    }
-
-    stdout('-----------------------------');
-
-    recordset.MoveNext();
+    console.log(JSON.stringify(result, null, 2));
+  } catch (error) {
+    console.log(error);
   }
 }
 
-function stdout(data) {
-  WScript.StdOut.Write(data + '\n');
-}
+query();

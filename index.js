@@ -32,9 +32,19 @@ class ADODB {
   }
 
   schema(type, criteria, id) {
+    const length = arguments.length;
     const connection = this.connection;
+    const params = { connection, type };
 
-    return proxy.exec('schema', { connection, type, criteria, id });
+    if (length >= 2) {
+      params.criteria = criteria;
+    }
+
+    if (length >= 3) {
+      params.id = id;
+    }
+
+    return proxy.exec('schema', params);
   }
 }
 
