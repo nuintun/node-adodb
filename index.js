@@ -1,3 +1,9 @@
+/**
+ * @module index
+ * @license MIT
+ * @version 2017/11/09
+ */
+
 'use strict';
 
 const utils = require('./lib/utils');
@@ -19,12 +25,10 @@ class ADODB {
     return proxy.exec('execute', params);
   }
 
-  query(sql, schema) {
+  query(sql) {
     const connection = this.connection;
 
-    schema = Boolean(schema);
-
-    return proxy.exec('query', { connection, schema, sql });
+    return proxy.exec('query', { connection, sql });
   }
 
   schema(type, criteria, id) {
