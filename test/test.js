@@ -1,109 +1,92 @@
-var fs = require('fs');
-var path = require('path');
-var arch = require('arch');
-var ADODB = require('../index');
-var expect = require('expect.js');
+/**
+ * @module test
+ * @license MIT
+ * @version 2017/11/09
+ */
 
-var source = path.join(__dirname, 'node-adodb.mdb');
-var mdb = fs.readFileSync(path.join(__dirname, '../examples/node-adodb.mdb'));
+'use strict';
+
+const fs = require('fs');
+const path = require('path');
+const arch = require('arch');
+const ADODB = require('../index');
+const expect = require('chai').expect;
+
+const source = path.join(__dirname, 'node-adodb.mdb');
+const mdb = fs.readFileSync(path.join(__dirname, '../examples/node-adodb.mdb'));
 
 fs.writeFileSync(source, mdb);
 
 // variable declaration
-var x64 = arch() === 'x64';
-var sysroot = process.env['systemroot'] || process.env['windir'];
-var cscript = path.join(sysroot, x64 ? 'SysWOW64' : 'System32', 'cscript.exe');
+const x64 = arch() === 'x64';
+const sysroot = process.env['systemroot'] || process.env['windir'];
+const cscript = path.join(sysroot, x64 ? 'SysWOW64' : 'System32', 'cscript.exe');
 
 if (fs.existsSync(cscript) && fs.existsSync(source)) {
   console.log('Use:', cscript);
   console.log('Database:', source);
 
   // variable declaration
-  var connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=' + source + ';');
+  const connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=' + source + ';');
 
-  describe('ADODB', function() {
-    it('events bind', function(next) {
-      var time = 5;
-      var query = connection.query('SELECT * FROM Users');
+  describe('ADODB', () => {
+    it('schema', (next) => {
+      connection
+        .schema(20)
+        .then((data) => {
+          expect(data).to.be.an('array');
 
-      // noop function
-      function fn() {
-        if (!time--) {
+          if (data.length) {
+            expect(data[0]).to.include.all.keys(['TABLE_NAME', 'TABLE_TYPE']);
+          }
+
           next();
-        }
-      }
-
-      // coveralls cover
-      query
-        .on('done', fn)
-        .off('done', fn)
-        .off('done')
-        .off()
-        .once('done', fn);
-
-      query.on('custom', fn);
-      query.emit('custom');
-      query.emit('custom', 1);
-      query.emit('custom', 1, 2);
-      query.emit('custom', 1, 2, 3);
-      query.emit('custom', 1, 2, 3, 4);
+        })
+        .catch((error) => {
+          next(error);
+        });
     });
 
-    describe('query', function() {
-      it('no field description', function(next) {
-        connection
-          .query('SELECT * FROM Users')
-          .on('done', function(data) {
-            expect(data.length).to.eql(3);
-            expect(data[0].UserName).to.eql('Nuintun');
-            expect(data[0]).to.have.key('UserBirthday');
-            expect(data[2].UserName).to.eql('张三');
+    it('query', (next) => {
+      connection
+        .query('SELECT * FROM Users')
+        .then((data) => {
+          expect(data.length).to.equal(3);
+          expect(data[0].UserName).to.equal('Nuintun');
+          expect(data[0]).to.have.ownProperty('UserBirthday');
+          expect(data[2].UserName).to.equal('张三');
 
-            next();
-          }).on('fail', function(error) {
-            next(error);
-          });
-      });
-
-      it('with field schema', function(next) {
-        connection
-          .query('SELECT * FROM Users', true)
-          .on('done', function(data, schema) {
-            expect(data.length).to.eql(3);
-            expect(data[0].UserName).to.eql('Nuintun');
-            expect(data[0]).to.have.key('UserBirthday');
-            expect(schema.UserName.Type).to.eql(202);
-            expect(schema.UserBirthday.Type).to.eql(7);
-
-            next();
-          }).on('fail', function(error) {
-            next(error);
-          });
-      });
+          next();
+        })
+        .catch((error) => {
+          next(error);
+        });
     });
 
-    describe('execute', function() {
-      it('no scalar', function(next) {
+    describe('execute', () => {
+      it('no scalar', (next) => {
         connection
           .execute('INSERT INTO Users(UserName, UserSex, UserBirthday, UserMarried) VALUES ("Bill", "Male", "1991/3/9", 0)')
-          .on('done', function(data) {
-            expect(data.length).to.eql(0);
+          .then((data) => {
+            expect(data.length).to.equal(0);
 
             next();
-          }).on('fail', function(error) {
+          })
+          .catch((error) => {
             next(error);
           });
       });
 
-      it('with scalar', function(next) {
+      it('with scalar', (next) => {
         connection
           .execute('INSERT INTO Users(UserName, UserSex, UserBirthday, UserMarried) VALUES ("Alice", "Female", "1986/3/9", 0)', 'SELECT @@Identity AS id')
-          .on('done', function(data) {
-            expect(data.length).to.eql(1);
-            expect(data[0].id).to.eql(5);
+          .then(function(data) {
+            expect(data.length).to.equal(1);
+            expect(data[0].id).to.equal(5);
 
             next();
-          }).on('fail', function(error) {
+          })
+          .catch((error) => {
             next(error);
           });
       });
