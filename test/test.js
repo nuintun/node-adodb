@@ -30,6 +30,22 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
   const connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=' + source + ';');
 
   describe('ADODB', () => {
+    it('query', (next) => {
+      connection
+        .query('SELECT * FROM Users')
+        .then((data) => {
+          expect(data.length).to.equal(3);
+          expect(data[0].UserName).to.equal('Nuintun');
+          expect(data[0]).to.have.ownProperty('UserBirthday');
+          expect(data[2].UserName).to.equal('张三');
+
+          next();
+        })
+        .catch((error) => {
+          next(error);
+        });
+    });
+
     it('schema', (next) => {
       connection
         .schema(20)
@@ -47,19 +63,12 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
         });
     });
 
-    it('query', (next) => {
+    it('Invaid sql syntax', (next) => {
       connection
-        .query('SELECT * FROM Users')
-        .then((data) => {
-          expect(data.length).to.equal(3);
-          expect(data[0].UserName).to.equal('Nuintun');
-          expect(data[0]).to.have.ownProperty('UserBirthday');
-          expect(data[2].UserName).to.equal('张三');
-
-          next();
-        })
+        .query('SELECT * FROM Users-non-exist')
         .catch((error) => {
-          next(error);
+          expect(error).to.exist;
+          next();
         });
     });
 
