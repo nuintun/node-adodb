@@ -13,65 +13,70 @@
 
 ### Introduction:
 ```js
-var ADODB = require('node-adodb');
-var connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-adodb.mdb;');
+'use strict';
 
-// Global debug switch
+const ADODB = require('node-adodb');
+const connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-adodb.mdb;');
+
+// 全局调试开关，默认关闭
 process.env.DEBUG = 'ADODB';
 
-// Without returned execute
+// 不带返回的执行
 connection
   .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)')
-  .on('done', function(data) {
+  .then((data) => {
     console.log(JSON.stringify(data, null, 2));
   })
-  .on('fail', function(error) {
-    // TODO something
+  .catch((error) => {
+    // TODO 逻辑处理
   });
 
-// With scalar returned of execute
+// 带返回标识的执行
 connection
   .execute(
     'INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)',
     'SELECT @@Identity AS id'
   )
-  .on('done', function(data) {
+  .then((data) => {
     console.log(JSON.stringify(data, null, 2));
   })
-  .on('fail', function(error) {
-    // TODO something
+  .catch((error) => {
+    // TODO 逻辑处理
   });
 
-// With returned of query
+// 带返回的查询
 connection
   .query('SELECT * FROM Users')
-  .on('done', function(data) {
+  .then((data) => {
     console.log(JSON.stringify(data, null, 2));
   })
-  .on('fail', function(error) {
-    // TODO something
+  .catch((error) => {
+    // TODO 逻辑处理
   });
 
-// With returned contains schema of query
+// 带字段描述的查询
 connection
-  .query('SELECT * FROM Users', true)
-  .on('done', function(data, schema) {
+  .schema(20)
+  .then((schema) => {
     console.log(JSON.stringify(schema, null, 2));
   })
-  .on('fail', function(error) {
-    // TODO something
+  .catch((error) => {
+    // TODO 逻辑处理
   });
 ```
 
 ### API:
-`ADODB.open(connection)`
+`ADODB.open(connection): ADODB`
 >Initialization database link parameters.
 
-`ADODB.query(sql, [schema])`
->Execute a SQL statement that returns a value or with field schema.
+`ADODB.query(sql): Promise`
+>Execute a SQL statement that returns a value.
 
-`ADODB.execute(sql, [scalar])`
+`ADODB.execute(sql, [scalar]): Promise`
 >Execute a SQL statement with no return value or with updated statistics.
+
+`ADODB.schema(type[, criteria][, id]): Promise`
+>Query database schema information. see: [OpenSchema](https://docs.microsoft.com/en-us/sql/ado/reference/ado-api/openschema-method)
 
 ### Extension:
 >This library theory supports all databases on the Windows platform that support ADODB connections, and only need to change the database connection string to achieve the operation!

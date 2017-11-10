@@ -8,9 +8,10 @@ const connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node
 
 process.env.DEBUG = 'ADODB';
 
+// Schema
 connection
-  .query('SELECT * FROM Users', true)
-  .then((data, schema) => {
+  .schema(20)
+  .then((schema) => {
     console.log(JSON.stringify(schema, null, 2));
   })
   .catch((message) => {

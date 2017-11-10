@@ -10,7 +10,7 @@ process.env.DEBUG = 'ADODB';
 // Variable declaration
 const connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-adodb.mdb;');
 
-// query
+// Query
 connection
   .query('SELECT * FROM Users')
   .then((data) => {

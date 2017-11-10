@@ -13,8 +13,10 @@
 
 ### 使用示例:
 ```js
-var ADODB = require('node-adodb');
-var connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-adodb.mdb;');
+'use strict';
+
+const ADODB = require('node-adodb');
+const connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-adodb.mdb;');
 
 // 全局调试开关，默认关闭
 process.env.DEBUG = 'ADODB';
@@ -22,10 +24,10 @@ process.env.DEBUG = 'ADODB';
 // 不带返回的执行
 connection
   .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)')
-  .on('done', function(data) {
+  .then((data) => {
     console.log(JSON.stringify(data, null, 2));
   })
-  .on('fail', function(error) {
+  .catch((error) => {
     // TODO 逻辑处理
   });
 
@@ -35,43 +37,46 @@ connection
     'INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)',
     'SELECT @@Identity AS id'
   )
-  .on('done', function(data) {
+  .then((data) => {
     console.log(JSON.stringify(data, null, 2));
   })
-  .on('fail', function(error) {
+  .catch((error) => {
     // TODO 逻辑处理
   });
 
 // 带返回的查询
 connection
   .query('SELECT * FROM Users')
-  .on('done', function(data) {
+  .then((data) => {
     console.log(JSON.stringify(data, null, 2));
   })
-  .on('fail', function(error) {
+  .catch((error) => {
     // TODO 逻辑处理
   });
 
 // 带字段描述的查询
 connection
-  .query('SELECT * FROM Users', true)
-  .on('done', function(data, schema) {
+  .schema(20)
+  .then((schema) => {
     console.log(JSON.stringify(schema, null, 2));
   })
-  .on('fail', function(error) {
+  .catch((error) => {
     // TODO 逻辑处理
   });
 ```
 
 ### 接口文档:
-`ADODB.open(connection)`
+`ADODB.open(connection): ADODB`
 >初始化数据库链接参数。
 
-`ADODB.query(sql, [schema])`
->执行有返回值的SQL语句。如果第二个参数设置成 ```true```，返回值中将包含当前字段的描述（字段大小，类型等等）。
+`ADODB.query(sql): Promise`
+>执行有返回值的SQL语句。
 
-`ADODB.execute(sql, [scalar])`
+`ADODB.execute(sql[, scalar]): Promise`
 >执行无返回值或者带更新统计的的SQL语句。
+
+`ADODB.schema(type[, criteria][, id]): Promise`
+>查询数据库架构信息。参考： [OpenSchema](https://docs.microsoft.com/zh-cn/sql/ado/reference/ado-api/openschema-method)
 
 ### 扩展:
 >该类库理论支持 Windows 平台下所有支持 ADODB 连接的数据库，只需要更改数据库连接字符串即可实现操作！

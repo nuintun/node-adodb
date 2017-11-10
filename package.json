@@ -15,7 +15,7 @@
   "description": "A Node.js JavaScript Client implementing the ADODB protocol .",
   "author": {
     "name": "nuintun",
-    "email": "<nuintun@qq.com>"
+    "email": "nuintun@qq.com"
   },
   "bugs": {
     "url": "https://github.com/nuintun/node-adodb/issues",

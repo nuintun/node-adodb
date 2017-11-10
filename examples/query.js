@@ -8,6 +8,7 @@ const connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node
 
 process.env.DEBUG = 'ADODB';
 
+// Query
 connection
   .query('SELECT * FROM Users')
   .then((data) => {

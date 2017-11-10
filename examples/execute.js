@@ -8,6 +8,7 @@ const connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node
 
 process.env.DEBUG = 'ADODB';
 
+// Execute
 connection
   .execute('INSERT INTO Users(UserName, UserSex, UserBirthday, UserMarried) VALUES ("Bill", "Male", "1991/3/9", 0)')
   .then((data) => {
