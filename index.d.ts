@@ -5,6 +5,6 @@ declare module 'node-adodb' {
   export interface open {
     query<T>(sql: string): Promise<T>;
     execute<T>(sql: string, scalar?: string): Promise<T>;
-    schema<T>(type: number, criteria?: number, id?: number): Promise<T>;
+    schema<T>(type: number, criteria?: [], id?: string): Promise<T>;
   }
 }

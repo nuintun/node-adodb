@@ -10,6 +10,7 @@ const fs = require('fs');
 const path = require('path');
 const arch = require('arch');
 const ADODB = require('../index');
+const holding = require('holding');
 const expect = require('chai').expect;
 
 const source = path.join(__dirname, 'node-adodb.mdb');
@@ -47,6 +48,8 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
     });
 
     it('schema', (next) => {
+      const cb = holding(2, next);
+
       connection
         .schema(20)
         .then((data) => {
@@ -56,10 +59,36 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
             expect(data[0]).to.include.all.keys(['TABLE_NAME', 'TABLE_TYPE']);
           }
 
-          next();
+          cb();
         })
         .catch((error) => {
-          next(error);
+          cb(error);
+        });
+
+      connection
+        .schema(4, [null, null, 'Users'])
+        .then((data) => {
+          expect(data).to.be.an('array');
+
+          if (data.length) {
+            expect(data[0]).to.include.all.keys(['TABLE_NAME', 'TABLE_TYPE']);
+          }
+
+          cb();
+        })
+        .catch((error) => {
+          cb(error);
+        });
+
+      connection
+        .schema(-1, [null, null, 'Users'], 'TABLE')
+        .then((data) => {
+          expect(data).to.be.an('array');
+
+          cb();
+        })
+        .catch((error) => {
+          cb();
         });
     });
 

@@ -14,6 +14,6 @@ connection
   .then((schema) => {
     console.log(JSON.stringify(schema, null, 2));
   })
-  .catch((message) => {
-    console.log(message);
+  .catch((error) => {
+    console.log(error);
   });

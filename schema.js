@@ -1,18 +1,16 @@
-/// <reference path="../index.d.ts" />
-
-declare const process: any;
+'use strict';
 
 // External lib
-import ADODB = require('node-adodb');
-
-process.env.DEBUG = 'ADODB';
+const ADODB = require('./');
 
 // Variable declaration
 const connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-adodb.mdb;');
 
+process.env.DEBUG = 'ADODB';
+
 // Schema
 connection
-  .schema(20)
+  .schema(4, [null, null, 'Users'])
   .then((schema) => {
     console.log(JSON.stringify(schema, null, 2));
   })

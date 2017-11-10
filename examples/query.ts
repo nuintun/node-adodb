@@ -16,6 +16,6 @@ connection
   .then((data) => {
     console.log(JSON.stringify(data, null, 2));
   })
-  .catch((message) => {
-    console.log(message);
+  .catch((error) => {
+    console.log(error);
   });
