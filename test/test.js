@@ -71,7 +71,7 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
           expect(data).to.be.an('array');
 
           if (data.length) {
-            expect(data[0]).to.include.all.keys(['TABLE_NAME', 'TABLE_TYPE']);
+            expect(data[0]).to.include.all.keys(['COLUMN_NAME', 'DATA_TYPE']);
           }
 
           cb();
