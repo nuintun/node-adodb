@@ -8,6 +8,7 @@ node_modules
 
 # github
 .gitignore
+.gitattributes
 
 # npm
 .npmignore
