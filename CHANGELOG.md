@@ -1,3 +1,5 @@
+# 4.0.1 / 2017/11/13
+- Add js docs comments
 # 4.0.0 / 2017/11/13
 - Rewrite with ES6
 - Add ```schema``` method
