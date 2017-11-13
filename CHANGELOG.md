@@ -1,3 +1,9 @@
+# 4.0.0 / 2017/11/13
+- Rewrite with ES6
+- Add ```schema``` method
+- Break changed
+  - ```execute``` return a promise
+  - ```query``` remove schema param(use ```schema``` method instead) and return a promise
 # 3.1.3 / 2017-11-07
 - Update deps
 - Update docs

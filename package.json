@@ -22,7 +22,7 @@
     "email": "nuintun@qq.com"
   },
   "engines": {
-    "node": ">=0.8.0"
+    "node": ">=4.0.0"
   },
   "repository": {
     "type": "git",
@@ -34,9 +34,9 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "rollup": "^0.51.3",
+    "rollup": "^0.51.5",
     "holding": "^1.0.6",
-    "uglify-es": "^3.1.8"
+    "uglify-es": "^3.1.9"
   },
   "readmeFilename": "README.md",
   "scripts": {
