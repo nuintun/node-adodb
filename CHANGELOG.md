@@ -1,4 +1,6 @@
-# 4.0.1 / 2017/11/16
+# 4.0.3 / 2017/11/16
+- ```package.json``` add ```os``` limit
+# 4.0.2 / 2017/11/16
 - Improving structure and clean code
 # 4.0.1 / 2017/11/13
 - Add js docs comments
