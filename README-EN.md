@@ -6,6 +6,7 @@
 >[![Download Status][download-image]][npm-url]
 >[![Windows Status][appveyor-image]][appveyor-url]
 >[![Test Coverage][coveralls-image]][coveralls-url]
+>![Node Version][node-image]
 >[![Dependencies][david-image]][david-url]
 
 ### Install
@@ -92,5 +93,6 @@ connection
 [appveyor-url]: https://ci.appveyor.com/project/nuintun/node-adodb
 [coveralls-image]: http://img.shields.io/coveralls/nuintun/node-adodb/master.svg?style=flat-square
 [coveralls-url]: https://coveralls.io/r/nuintun/node-adodb?branch=master
-[david-image]: https://img.shields.io/david/nuintun/node-adodb.svg?style=flat-square
+[david-image]: https://img.shields.io/david/nuintun/node-adodb/master.svg?style=flat-square
 [david-url]: https://david-dm.org/nuintun/node-adodb
+[node-image]: https://img.shields.io/node/v/node-adodb/master.svg?style=flat-square

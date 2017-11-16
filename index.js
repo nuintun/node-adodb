@@ -6,8 +6,12 @@
 
 'use strict';
 
-const utils = require('./lib/utils');
+// Import lib
 const proxy = require('./lib/proxy');
+const debug = require('debug')('ADODB');
+
+// Set debug color
+debug.color = 6;
 
 /**
  * @class ADODB
@@ -28,10 +32,15 @@ class ADODB {
    * @returns {Promise}
    */
   execute(sql, scalar) {
+    debug('cmd:', 'execute');
+    debug('sql:', sql);
+
     const connection = this.connection;
     const params = { connection, sql };
 
-    if (utils.isString(scalar)) {
+    if (arguments.length > 1) {
+      debug('scalar:', scalar);
+
       params.scalar = scalar;
     }
 
@@ -44,6 +53,9 @@ class ADODB {
    * @returns {Promise}
    */
   query(sql) {
+    debug('cmd:', 'query');
+    debug('sql:', sql);
+
     const connection = this.connection;
 
     return proxy.exec('query', { connection, sql });
@@ -57,15 +69,22 @@ class ADODB {
    * @returns {Promise}
    */
   schema(type, criteria, id) {
+    debug('cmd:', 'schema');
+    debug('type:', type);
+
     const length = arguments.length;
     const connection = this.connection;
     const params = { connection, type };
 
-    if (length >= 2) {
+    if (length > 1) {
+      debug('criteria:', criteria);
+
       params.criteria = criteria;
     }
 
-    if (length >= 3) {
+    if (length > 2) {
+      debug('id:', id);
+
       params.id = id;
     }
 
@@ -80,7 +99,5 @@ module.exports = {
    * @param {string} connection
    * @returns {ADODB}
    */
-  open: (connection) => {
-    return new ADODB(connection);
-  }
+  open: connection => new ADODB(connection)
 };
