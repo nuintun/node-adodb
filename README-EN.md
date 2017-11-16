@@ -95,4 +95,4 @@ connection
 [coveralls-url]: https://coveralls.io/r/nuintun/node-adodb?branch=master
 [david-image]: https://img.shields.io/david/nuintun/node-adodb/master.svg?style=flat-square
 [david-url]: https://david-dm.org/nuintun/node-adodb
-[node-image]: https://img.shields.io/node/v/node-adodb/master.svg?style=flat-square
+[node-image]: https://img.shields.io/node/v/node-adodb.svg?style=flat-square
