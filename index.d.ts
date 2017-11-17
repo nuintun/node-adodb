@@ -1,4 +1,3 @@
-
 declare module 'node-adodb' {
   const open: (connection: string) => open;
 
