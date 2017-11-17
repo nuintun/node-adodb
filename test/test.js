@@ -31,10 +31,10 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
   const connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=' + source + ';');
 
   describe('ADODB', () => {
-    it('query', (next) => {
+    it('query', next => {
       connection
         .query('SELECT * FROM Users')
-        .then((data) => {
+        .then(data => {
           expect(data.length).to.equal(3);
           expect(data[0].UserName).to.equal('Nuintun');
           expect(data[0]).to.have.ownProperty('UserBirthday');
@@ -42,17 +42,17 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
 
           next();
         })
-        .catch((error) => {
+        .catch(error => {
           next(error);
         });
     });
 
-    it('schema', (next) => {
+    it('schema', next => {
       const cb = holding(2, next);
 
       connection
         .schema(20)
-        .then((data) => {
+        .then(data => {
           expect(data).to.be.an('array');
 
           if (data.length) {
@@ -61,13 +61,13 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
 
           cb();
         })
-        .catch((error) => {
+        .catch(error => {
           cb(error);
         });
 
       connection
         .schema(4, [null, null, 'Users'])
-        .then((data) => {
+        .then(data => {
           expect(data).to.be.an('array');
 
           if (data.length) {
@@ -76,55 +76,58 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
 
           cb();
         })
-        .catch((error) => {
+        .catch(error => {
           cb(error);
         });
 
       connection
         .schema(-1, [null, null, 'Users'], 'TABLE')
-        .then((data) => {
+        .then(data => {
           expect(data).to.be.an('array');
 
           cb();
         })
-        .catch((error) => {
+        .catch(error => {
           cb();
         });
     });
 
-    it('Invaid sql syntax', (next) => {
-      connection
-        .query('SELECT * FROM Users-non-exist')
-        .catch((error) => {
-          expect(error).to.be.exist;
-          next();
-        });
+    it('Invaid sql syntax', next => {
+      connection.query('SELECT * FROM Users-non-exist').catch(error => {
+        expect(error).to.be.exist;
+        next();
+      });
     });
 
     describe('execute', () => {
-      it('no scalar', (next) => {
+      it('no scalar', next => {
         connection
-          .execute('INSERT INTO Users(UserName, UserSex, UserBirthday, UserMarried) VALUES ("Bill", "Male", "1991/3/9", 0)')
-          .then((data) => {
+          .execute(
+            'INSERT INTO Users(UserName, UserSex, UserBirthday, UserMarried) VALUES ("Bill", "Male", "1991/3/9", 0)'
+          )
+          .then(data => {
             expect(data.length).to.equal(0);
 
             next();
           })
-          .catch((error) => {
+          .catch(error => {
             next(error);
           });
       });
 
-      it('with scalar', (next) => {
+      it('with scalar', next => {
         connection
-          .execute('INSERT INTO Users(UserName, UserSex, UserBirthday, UserMarried) VALUES ("Alice", "Female", "1986/3/9", 0)', 'SELECT @@Identity AS id')
+          .execute(
+            'INSERT INTO Users(UserName, UserSex, UserBirthday, UserMarried) VALUES ("Alice", "Female", "1986/3/9", 0)',
+            'SELECT @@Identity AS id'
+          )
           .then(function(data) {
             expect(data.length).to.equal(1);
             expect(data[0].id).to.equal(5);
 
             next();
           })
-          .catch((error) => {
+          .catch(error => {
             next(error);
           });
       });
