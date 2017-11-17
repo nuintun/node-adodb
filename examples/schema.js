@@ -11,9 +11,9 @@ process.env.DEBUG = 'ADODB';
 // Schema
 connection
   .schema(20)
-  .then((schema) => {
+  .then(schema => {
     console.log(JSON.stringify(schema, null, 2));
   })
-  .catch((error) => {
+  .catch(error => {
     console.log(error);
   });

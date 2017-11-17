@@ -11,9 +11,9 @@ process.env.DEBUG = 'ADODB';
 // Query
 connection
   .query('SELECT * FROM Users')
-  .then((data) => {
+  .then(data => {
     console.log(JSON.stringify(data, null, 2));
   })
-  .catch((error) => {
+  .catch(error => {
     console.log(error);
   });

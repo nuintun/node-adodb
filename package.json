@@ -21,7 +21,9 @@
     "url": "https://github.com/nuintun/node-adodb/issues",
     "email": "nuintun@qq.com"
   },
-  "os": ["win32"],
+  "os": [
+    "win32"
+  ],
   "engines": {
     "node": ">=4.0.0"
   },

@@ -13,9 +13,9 @@ const connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node
 // Schema
 connection
   .schema(20)
-  .then((schema) => {
+  .then(schema => {
     console.log(JSON.stringify(schema, null, 2));
   })
-  .catch((error) => {
+  .catch(error => {
     console.log(error);
   });
