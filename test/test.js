@@ -18,7 +18,7 @@ const mdb = fs.readFileSync(path.join(__dirname, '../examples/node-adodb.mdb'));
 
 fs.writeFileSync(source, mdb);
 
-// variable declaration
+// Variable declaration
 const x64 = arch() === 'x64';
 const sysroot = process.env['systemroot'] || process.env['windir'];
 const cscript = path.join(sysroot, x64 ? 'SysWOW64' : 'System32', 'cscript.exe');
@@ -27,7 +27,7 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
   console.log('Use:', cscript);
   console.log('Database:', source);
 
-  // variable declaration
+  // Variable declaration
   const connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=' + source + ';');
 
   describe('ADODB', () => {
