@@ -19,50 +19,44 @@
 const ADODB = require('node-adodb');
 const connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-adodb.mdb;');
 
-// 全局调试开关，默认关闭
-process.env.DEBUG = 'ADODB';
-
-// 不带返回的执行
+// Execute
 connection
   .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)')
-  .then((data) => {
+  .then(data => {
     console.log(JSON.stringify(data, null, 2));
   })
-  .catch((error) => {
-    // TODO 逻辑处理
+  .catch(error => {
+    // TODO Error
   });
 
-// 带返回标识的执行
+// Execute
 connection
-  .execute(
-    'INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)',
-    'SELECT @@Identity AS id'
-  )
-  .then((data) => {
+  .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)', 'SELECT @@Identity AS id')
+  .then(data => {
     console.log(JSON.stringify(data, null, 2));
   })
-  .catch((error) => {
-    // TODO 逻辑处理
+  .catch(error => {
+    // TODO Error
   });
 
-// 带返回的查询
+// Query
 connection
   .query('SELECT * FROM Users')
-  .then((data) => {
+  .then(data => {
     console.log(JSON.stringify(data, null, 2));
   })
-  .catch((error) => {
-    // TODO 逻辑处理
+  .catch(error => {
+    // TODO Error
   });
 
-// 带字段描述的查询
+// Schema
 connection
   .schema(20)
-  .then((schema) => {
+  .then(schema => {
     console.log(JSON.stringify(schema, null, 2));
   })
-  .catch((error) => {
-    // TODO 逻辑处理
+  .catch(error => {
+    // TODO Error
   });
 ```
 
@@ -78,6 +72,9 @@ connection
 
 `ADODB.schema(type[, criteria][, id]): Promise`
 >Query database schema information. see: [OpenSchema](https://docs.microsoft.com/en-us/sql/ado/reference/ado-api/openschema-method)
+
+### Debug:
+>Set env ```DEBUG=ADODB```, see: [debug](https://github.com/visionmedia/debug)
 
 ### Extension:
 >This library theory supports all databases on the Windows platform that support ADODB connections, and only need to change the database connection string to achieve the operation!

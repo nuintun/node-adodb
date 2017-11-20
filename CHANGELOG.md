@@ -1,3 +1,7 @@
+# 4.0.4 / 2017/11/20
+- Update docs
+- Update deps
+- Use prettier format code
 # 4.0.3 / 2017/11/16
 - ```package.json``` add ```os``` limit
 # 4.0.2 / 2017/11/16

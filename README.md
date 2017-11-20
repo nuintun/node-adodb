@@ -19,49 +19,43 @@
 const ADODB = require('node-adodb');
 const connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-adodb.mdb;');
 
-// 全局调试开关，默认关闭
-process.env.DEBUG = 'ADODB';
-
 // 不带返回的执行
 connection
   .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)')
-  .then((data) => {
+  .then(data => {
     console.log(JSON.stringify(data, null, 2));
   })
-  .catch((error) => {
+  .catch(error => {
     // TODO 逻辑处理
   });
 
 // 带返回标识的执行
 connection
-  .execute(
-    'INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)',
-    'SELECT @@Identity AS id'
-  )
-  .then((data) => {
+  .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)', 'SELECT @@Identity AS id')
+  .then(data => {
     console.log(JSON.stringify(data, null, 2));
   })
-  .catch((error) => {
+  .catch(error => {
     // TODO 逻辑处理
   });
 
 // 带返回的查询
 connection
   .query('SELECT * FROM Users')
-  .then((data) => {
+  .then(data => {
     console.log(JSON.stringify(data, null, 2));
   })
-  .catch((error) => {
+  .catch(error => {
     // TODO 逻辑处理
   });
 
 // 带字段描述的查询
 connection
   .schema(20)
-  .then((schema) => {
+  .then(schema => {
     console.log(JSON.stringify(schema, null, 2));
   })
-  .catch((error) => {
+  .catch(error => {
     // TODO 逻辑处理
   });
 ```
@@ -78,6 +72,9 @@ connection
 
 `ADODB.schema(type[, criteria][, id]): Promise`
 >查询数据库架构信息。参考： [OpenSchema](https://docs.microsoft.com/zh-cn/sql/ado/reference/ado-api/openschema-method)
+
+### 调试：
+>设置环境变量 ```DEBUG=ADODB```。参考： [debug](https://github.com/visionmedia/debug)
 
 ### 扩展:
 >该类库理论支持 Windows 平台下所有支持 ADODB 连接的数据库，只需要更改数据库连接字符串即可实现操作！
