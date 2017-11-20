@@ -31,7 +31,10 @@ connection
 
 // Execute
 connection
-  .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)', 'SELECT @@Identity AS id')
+  .execute(
+    'INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)',
+    'SELECT @@Identity AS id'
+  )
   .then(data => {
     console.log(JSON.stringify(data, null, 2));
   })
