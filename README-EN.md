@@ -29,7 +29,7 @@ connection
     // TODO Error
   });
 
-// Execute
+// Execute with scalar
 connection
   .execute(
     'INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)',
@@ -70,7 +70,7 @@ connection
 `ADODB.query(sql): Promise`
 >Execute a SQL statement that returns a value.
 
-`ADODB.execute(sql, [scalar]): Promise`
+`ADODB.execute(sql[, scalar]): Promise`
 >Execute a SQL statement with no return value or with updated statistics.
 
 `ADODB.schema(type[, criteria][, id]): Promise`
