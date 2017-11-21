@@ -11,7 +11,7 @@ process.env.DEBUG = 'ADODB';
 
 // Query
 connection
-  .query('SELECT * FROM Users')
+  .query('SELECT top 1 * FROM Users')
   .then(data => {
     console.log(data[0].UserAvatar);
   })
