@@ -13,7 +13,7 @@ const sysroot = process.env['systemroot'] || process.env['windir'];
 const cscript = path.join(sysroot, x64 ? 'SysWOW64' : 'System32', 'cscript.exe');
 
 // Exec commond
-const stdio = spawn(cscript, [adodb, '//E:JScript', '//Nologo', '//U'], { windowsHide: true });
+const stdio = spawn(cscript, [adodb, '//E:JScript', '//Nologo', '//U', '//B'], { windowsHide: true });
 
 // Stdout
 stdio.stdout.on('data', data => {
