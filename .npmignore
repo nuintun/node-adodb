@@ -28,11 +28,5 @@ lib/adodb
 # rollup
 rollup.js
 
-# test mdb
-test/node-adodb.mdb
-
-# vscode beautify extension configure
-.jsbeautifyrc
-
 # npm lock file
 package-lock.json
