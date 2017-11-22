@@ -1,3 +1,5 @@
+# 4.0.5 / 2017/11/22
+- Improving structure
 # 4.0.4 / 2017/11/22
 - Update docs
 - Update deps
