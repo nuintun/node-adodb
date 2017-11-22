@@ -1,7 +1,9 @@
-# 4.0.4 / 2017/11/20
+# 4.0.4 / 2017/11/22
 - Update docs
 - Update deps
 - Use prettier format code
+- Support binary data [#45](https://github.com/nuintun/node-adodb/issues/45)
+- Support long SQL(use child process stdin instead of command line arguments)
 # 4.0.3 / 2017/11/16
 - ```package.json``` add ```os``` limit
 # 4.0.2 / 2017/11/16
