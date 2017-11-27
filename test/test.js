@@ -10,8 +10,8 @@ const fs = require('fs');
 const path = require('path');
 const arch = require('arch');
 const ADODB = require('../index');
-const holding = require('holding');
 const expect = require('chai').expect;
+const holding = require('holding').assert;
 
 const source = path.join(__dirname, 'node-adodb.mdb');
 const mdb = fs.readFileSync(path.join(__dirname, '../examples/node-adodb.mdb'));
