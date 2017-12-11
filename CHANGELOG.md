@@ -1,3 +1,6 @@
+# 4.0.6 / 2017/12/11
+- Update deps
+- Fixed .editorconfig
 # 4.0.5 / 2017/11/27
 - Improving structure
 - Clean .npmignore
