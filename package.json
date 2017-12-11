@@ -3,14 +3,7 @@
   "version": "4.0.6",
   "main": "index.js",
   "license": "MIT",
-  "keywords": [
-    "sql",
-    "adodb",
-    "access",
-    "database",
-    "node-adodb",
-    "microsoft adodb"
-  ],
+  "keywords": ["sql", "adodb", "access", "database", "node-adodb", "microsoft adodb"],
   "homepage": "https://github.com/nuintun/node-adodb",
   "description": "A Node.js JavaScript Client implementing the ADODB protocol .",
   "author": {
@@ -21,9 +14,7 @@
     "url": "https://github.com/nuintun/node-adodb/issues",
     "email": "nuintun@qq.com"
   },
-  "os": [
-    "win32"
-  ],
+  "os": ["win32"],
   "engines": {
     "node": ">=4.0.0"
   },
@@ -44,7 +35,8 @@
   "readmeFilename": "README.md",
   "scripts": {
     "test": "mocha --timeout 6000 --check-leaks --reporter spec --bail --exit",
-    "test-ci": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- --timeout 6000 --check-leaks --reporter spec --exit",
+    "test-ci":
+      "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- --timeout 6000 --check-leaks --reporter spec --exit",
     "test-cov": "istanbul cover ./node_modules/mocha/bin/_mocha -- --timeout 6000 --check-leaks --reporter dot --exit"
   }
 }
