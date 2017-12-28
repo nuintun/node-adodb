@@ -30,7 +30,7 @@ connection
     console.log(JSON.stringify(data, null, 2));
   })
   .catch(error => {
-    // TODO Error
+    console.error(error);
   });
 
 // Execute with scalar
@@ -40,7 +40,7 @@ connection
     console.log(JSON.stringify(data, null, 2));
   })
   .catch(error => {
-    // TODO Error
+    console.error(error);
   });
 
 // Query
@@ -50,7 +50,7 @@ connection
     console.log(JSON.stringify(data, null, 2));
   })
   .catch(error => {
-    // TODO Error
+    console.error(error);
   });
 
 // Schema
@@ -60,7 +60,7 @@ connection
     console.log(JSON.stringify(schema, null, 2));
   })
   .catch(error => {
-    // TODO Error
+    console.error(error);
   });
 ```
 

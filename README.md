@@ -30,7 +30,7 @@ connection
     console.log(JSON.stringify(data, null, 2));
   })
   .catch(error => {
-    // TODO 逻辑处理
+    console.error(error);
   });
 
 // 带返回标识的执行
@@ -40,7 +40,7 @@ connection
     console.log(JSON.stringify(data, null, 2));
   })
   .catch(error => {
-    // TODO 逻辑处理
+    console.error(error);
   });
 
 // 带返回的查询
@@ -50,7 +50,7 @@ connection
     console.log(JSON.stringify(data, null, 2));
   })
   .catch(error => {
-    // TODO 逻辑处理
+    console.error(error);
   });
 
 // 带字段描述的查询
@@ -60,7 +60,7 @@ connection
     console.log(JSON.stringify(schema, null, 2));
   })
   .catch(error => {
-    // TODO 逻辑处理
+    console.error(error);
   });
 ```
 
