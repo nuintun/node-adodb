@@ -1,8 +1,25 @@
+/**
+ * @module rollup
+ * @license MIT
+ * @version 2017/11/09
+ */
+
 'use strict';
 
 const fs = require('fs');
 const rollup = require('rollup');
 const uglify = require('uglify-es');
+const pkg = require('./package.json');
+
+const banner = `/**
+ * @module ${pkg.name}
+ * @author ${pkg.author.name}
+ * @license ${pkg.license}
+ * @version ${pkg.version}
+ * @description ${pkg.description}
+ * @see ${pkg.homepage}
+ */
+`;
 
 rollup
   .rollup({
@@ -16,7 +33,8 @@ rollup
       .generate({
         format: 'iife',
         indent: true,
-        strict: true
+        strict: true,
+        banner: banner
       })
       .then(function(result) {
         result = uglify.minify(result.code, {
@@ -25,7 +43,7 @@ rollup
           mangle: { eval: true }
         });
 
-        fs.writeFileSync(min, result.code);
+        fs.writeFileSync(min, banner + result.code);
         console.log(`  Build ${min} success!`);
       })
       .catch(function(error) {
