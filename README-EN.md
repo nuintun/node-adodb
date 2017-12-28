@@ -1,18 +1,22 @@
 # node-adodb
 
->A node.js javascript client implementing the ADODB protocol on windows.
+> A node.js javascript client implementing the ADODB protocol on windows.
 >
->[![NPM Version][npm-image]][npm-url]
->[![Download Status][download-image]][npm-url]
->[![Windows Status][appveyor-image]][appveyor-url]
->[![Test Coverage][coveralls-image]][coveralls-url]
->![Node Version][node-image]
->[![Dependencies][david-image]][david-url]
+> [![NPM Version][npm-image]][npm-url]
+> [![Download Status][download-image]][npm-url]
+> [![Windows Status][appveyor-image]][appveyor-url]
+> [![Test Coverage][coveralls-image]][coveralls-url]
+> ![Node Version][node-image]
+> [![Dependencies][david-image]][david-url]
 
 ### Install
+
 [![NPM](https://nodei.co/npm/node-adodb.png)](https://nodei.co/npm/node-adodb/)
 
 ### Introduction:
+
+##### ES6
+
 ```js
 'use strict';
 
@@ -31,10 +35,7 @@ connection
 
 // Execute with scalar
 connection
-  .execute(
-    'INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)',
-    'SELECT @@Identity AS id'
-  )
+  .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)', 'SELECT @@Identity AS id')
   .then(data => {
     console.log(JSON.stringify(data, null, 2));
   })
@@ -63,28 +64,57 @@ connection
   });
 ```
 
+##### ES7 async/await
+
+```js
+'use strict';
+
+const ADODB = require('node-adodb');
+const connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-adodb.mdb;');
+
+async function query() {
+  try {
+    const users = await connection.query('SELECT * FROM Users');
+
+    console.log(JSON.stringify(users, null, 2));
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+query();
+```
+
 ### API:
+
 `ADODB.open(connection): ADODB`
->Initialization database link parameters.
+
+> Initialization database link parameters.
 
 `ADODB.query(sql): Promise`
->Execute a SQL statement that returns a value.
+
+> Execute a SQL statement that returns a value.
 
 `ADODB.execute(sql[, scalar]): Promise`
->Execute a SQL statement with no return value or with updated statistics.
+
+> Execute a SQL statement with no return value or with updated statistics.
 
 `ADODB.schema(type[, criteria][, id]): Promise`
->Query database schema information. see: [OpenSchema](https://docs.microsoft.com/en-us/sql/ado/reference/ado-api/openschema-method)
+
+> Query database schema information. see: [OpenSchema](https://docs.microsoft.com/en-us/sql/ado/reference/ado-api/openschema-method)
 
 ### Debug:
->Set env ```DEBUG=ADODB```, see: [debug](https://github.com/visionmedia/debug)
+
+> Set env `DEBUG=ADODB`, see: [debug](https://github.com/visionmedia/debug)
 
 ### Extension:
->This library theory supports all databases on the Windows platform that support ADODB connections, and only need to change the database connection string to achieve the operation!
+
+> This library theory supports all databases on the Windows platform that support ADODB connections, and only need to change the database connection string to achieve the operation!
 
 ### Notes:
->The library need system support for Microsoft.Jet.OLEDB.4.0, Windows XP SP2 above support system default, other need to upgrade their specific operation process, please refer to:
-[How to obtain the Microsoft Jet 4 database engine of the new Service Pack](http://support2.microsoft.com/kb/239114/en-us)
+
+> The library need system support for Microsoft.Jet.OLEDB.4.0, Windows XP SP2 above support system default, other need to upgrade their specific operation process, please refer to:
+> [How to obtain the Microsoft Jet 4 database engine of the new Service Pack](http://support2.microsoft.com/kb/239114/en-us)
 
 [npm-image]: https://img.shields.io/npm/v/node-adodb.svg?style=flat-square
 [npm-url]: https://www.npmjs.org/package/node-adodb

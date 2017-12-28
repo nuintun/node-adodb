@@ -1,5 +1,6 @@
 # 4.0.6 / 2017/12/28
 - Update deps
+- Update docs
 - Fixed .editorconfig
 # 4.0.5 / 2017/11/27
 - Improving structure

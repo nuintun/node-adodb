@@ -1,18 +1,22 @@
 # node-adodb
 
->一个用 Node.js 实现的 windows 上的 ADODB 协议。
+> 一个用 Node.js 实现的 windows 上的 ADODB 协议。
 >
->[![NPM Version][npm-image]][npm-url]
->[![Download Status][download-image]][npm-url]
->[![Windows Status][appveyor-image]][appveyor-url]
->[![Test Coverage][coveralls-image]][coveralls-url]
->![Node Version][node-image]
->[![Dependencies][david-image]][david-url]
+> [![NPM Version][npm-image]][npm-url]
+> [![Download Status][download-image]][npm-url]
+> [![Windows Status][appveyor-image]][appveyor-url]
+> [![Test Coverage][coveralls-image]][coveralls-url]
+> ![Node Version][node-image]
+> [![Dependencies][david-image]][david-url]
 
 ### 安装
+
 [![NPM](https://nodei.co/npm/node-adodb.png)](https://nodei.co/npm/node-adodb/)
 
 ### 使用示例:
+
+##### ES6
+
 ```js
 'use strict';
 
@@ -31,10 +35,7 @@ connection
 
 // 带返回标识的执行
 connection
-  .execute(
-    'INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)',
-    'SELECT @@Identity AS id'
-  )
+  .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)', 'SELECT @@Identity AS id')
   .then(data => {
     console.log(JSON.stringify(data, null, 2));
   })
@@ -63,28 +64,56 @@ connection
   });
 ```
 
+##### ES7 async/await
+```js
+'use strict';
+
+const ADODB = require('node-adodb');
+const connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-adodb.mdb;');
+
+async function query() {
+  try {
+    const users = await connection.query('SELECT * FROM Users');
+
+    console.log(JSON.stringify(users, null, 2));
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+query();
+```
+
 ### 接口文档:
+
 `ADODB.open(connection): ADODB`
->初始化数据库链接参数。
+
+> 初始化数据库链接参数。
 
 `ADODB.query(sql): Promise`
->执行有返回值的SQL语句。
+
+> 执行有返回值的 SQL 语句。
 
 `ADODB.execute(sql[, scalar]): Promise`
->执行无返回值或者带更新统计的的SQL语句。
+
+> 执行无返回值或者带更新统计的的 SQL 语句。
 
 `ADODB.schema(type[, criteria][, id]): Promise`
->查询数据库架构信息。参考： [OpenSchema](https://docs.microsoft.com/zh-cn/sql/ado/reference/ado-api/openschema-method)
+
+> 查询数据库架构信息。参考： [OpenSchema](https://docs.microsoft.com/zh-cn/sql/ado/reference/ado-api/openschema-method)
 
 ### 调试：
->设置环境变量 ```DEBUG=ADODB```。参考： [debug](https://github.com/visionmedia/debug)
+
+> 设置环境变量 `DEBUG=ADODB`。参考： [debug](https://github.com/visionmedia/debug)
 
 ### 扩展:
->该类库理论支持 Windows 平台下所有支持 ADODB 连接的数据库，只需要更改数据库连接字符串即可实现操作！
+
+> 该类库理论支持 Windows 平台下所有支持 ADODB 连接的数据库，只需要更改数据库连接字符串即可实现操作！
 
 ### 注意:
->该类库需要系统支持 Microsoft.Jet.OLEDB.4.0，对于 Windows XP SP2 以上系统默认支持，其它需要自己升级，具体操作过程请参考：
-[如何获取 Microsoft Jet 4.0 数据库引擎的最新 Service Pack](http://support.microsoft.com/default.aspx?scid=kb;zh-CN;239114)
+
+> 该类库需要系统支持 Microsoft.Jet.OLEDB.4.0，对于 Windows XP SP2 以上系统默认支持，其它需要自己升级，具体操作过程请参考：
+> [如何获取 Microsoft Jet 4.0 数据库引擎的最新 Service Pack](http://support.microsoft.com/default.aspx?scid=kb;zh-CN;239114)
 
 [npm-image]: https://img.shields.io/npm/v/node-adodb.svg?style=flat-square
 [npm-url]: https://www.npmjs.org/package/node-adodb
