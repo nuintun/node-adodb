@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nuintun/node-adodb.git"
+    "url": "git+https://github.com/nuintun/node-adodb.git"
   },
   "dependencies": {
     "arch": "^2.1.0",
@@ -32,7 +32,6 @@
     "holding": "^2.0.1",
     "uglify-es": "^3.3.7"
   },
-  "readmeFilename": "README.md",
   "scripts": {
     "test": "mocha --timeout 6000 --check-leaks --reporter spec --bail --exit",
     "test-ci":
