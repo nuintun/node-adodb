@@ -1,3 +1,5 @@
+# 4.0.7 / 2018/01/15
+- Update deps
 # 4.0.6 / 2017/12/28
 - Update deps
 - Update docs

@@ -1,6 +1,6 @@
 {
   "name": "node-adodb",
-  "version": "4.0.6",
+  "version": "4.0.7",
   "main": "index.js",
   "license": "MIT",
   "keywords": ["sql", "adodb", "access", "database", "node-adodb", "microsoft adodb"],
@@ -28,9 +28,9 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "rollup": "^0.53.0",
+    "rollup": "^0.54.0",
     "holding": "^2.0.1",
-    "uglify-es": "^3.3.2"
+    "uglify-es": "^3.3.7"
   },
   "readmeFilename": "README.md",
   "scripts": {
