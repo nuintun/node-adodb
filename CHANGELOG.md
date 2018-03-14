@@ -1,3 +1,5 @@
+# 4.0.9 / 2018/03/14
+- Clean code
 # 4.0.8 / 2018/03/14
 - Clean ```package.json```
 - Use ```require.resolve``` instead ```__dirname```
