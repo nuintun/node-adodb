@@ -1,5 +1,6 @@
-# 4.0.7 / 2018/01/15
+# 4.0.8 / 2018/03/14
 - Clean ```package.json```
+- Use ```require.resolve``` instead ```__dirname```
 # 4.0.7 / 2018/01/15
 - Update deps
 # 4.0.6 / 2017/12/28

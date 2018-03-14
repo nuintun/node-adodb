@@ -1,6 +1,6 @@
 {
   "name": "node-adodb",
-  "version": "4.0.7",
+  "version": "4.0.8",
   "main": "index.js",
   "license": "MIT",
   "keywords": ["sql", "adodb", "access", "database", "node-adodb", "microsoft adodb"],
@@ -28,9 +28,9 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "rollup": "^0.54.0",
+    "rollup": "^0.56.5",
     "holding": "^2.0.1",
-    "uglify-es": "^3.3.7"
+    "uglify-es": "^3.3.9"
   },
   "scripts": {
     "test": "mocha --timeout 6000 --check-leaks --reporter spec --bail --exit",
