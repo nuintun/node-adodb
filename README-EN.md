@@ -111,6 +111,10 @@ query();
 
 > This library theory supports all databases on the Windows platform that support ADODB connections, and only need to change the database connection string to achieve the operation!
 
+> Common access connection strings: 
+>  - Access 2000-2003 (\*.mdb): `Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-adodb.mdb;`
+>  - Access > 2007 (\*.accdb): `Provider=Microsoft.ACE.OLEDB.12.0;Data Source=adodb.accdb;Persist Security Info=False;` or  `Provider=Microsoft.ACE.OLEDB.15.0;Data Source=adodb.accdb;Persist Security Info=False;`
+
 ### Notes:
 
 > The library need system support for Microsoft.Jet.OLEDB.4.0, Windows XP SP2 above support system default, other need to upgrade their specific operation process, please refer to:
