@@ -1,18 +1,17 @@
 {
   "name": "node-adodb",
-  "version": "4.0.8",
+  "version": "4.0.9",
   "main": "index.js",
   "license": "MIT",
   "keywords": ["sql", "adodb", "access", "database", "node-adodb", "microsoft adodb"],
-  "homepage": "https://github.com/nuintun/node-adodb",
+  "homepage": "https://github.com/nuintun/node-adodb#readme",
   "description": "A Node.js JavaScript Client implementing the ADODB protocol.",
   "author": {
     "name": "nuintun",
     "email": "nuintun@qq.com"
   },
   "bugs": {
-    "url": "https://github.com/nuintun/node-adodb/issues",
-    "email": "nuintun@qq.com"
+    "url": "https://github.com/nuintun/node-adodb/issues"
   },
   "os": ["win32"],
   "engines": {
@@ -28,8 +27,8 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "rollup": "^0.56.5",
-    "holding": "^2.0.1",
+    "rollup": "^0.57.1",
+    "holding": "^3.0.2",
     "uglify-es": "^3.3.9"
   },
   "scripts": {

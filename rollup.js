@@ -23,7 +23,6 @@ const banner = `/**
 
 rollup
   .rollup({
-    legacy: true,
     input: 'lib/adodb/main.js'
   })
   .then(function(bundle) {
@@ -34,6 +33,7 @@ rollup
         format: 'iife',
         indent: true,
         strict: true,
+        legacy: true,
         banner: banner
       })
       .then(function(result) {

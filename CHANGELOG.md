@@ -1,5 +1,7 @@
-# 4.0.9 / 2018/03/14
-- Clean code
+# 4.0.9 / 2018/03/31
+- Clean code and file
+- Update configure file
+- Refactoring proxy.js, ensure the integrity of data reception
 # 4.0.8 / 2018/03/14
 - Clean ```package.json```
 - Use ```require.resolve``` instead ```__dirname```
