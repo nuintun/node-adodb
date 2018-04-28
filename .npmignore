@@ -84,3 +84,6 @@ package-lock.json
 
 # adodb src file
 /lib/adodb/
+
+# rollup configuration
+/rollup.js
