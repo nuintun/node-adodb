@@ -13,7 +13,7 @@ const ADODB = require('../index');
 const expect = require('chai').expect;
 const holding = require('holding').assert;
 
-const source = require.resolve('./node-adodb.mdb');
+const source = path.resolve('test/node-adodb.mdb');
 const mdb = fs.readFileSync(require.resolve('../examples/node-adodb.mdb'));
 
 fs.writeFileSync(source, mdb);
