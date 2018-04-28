@@ -1,3 +1,6 @@
+# 4.1.0 / 2018/04/28
+- Refactoring code
+
 # 4.0.9 / 2018/03/31
 - Clean code and file
 - Update configure file
