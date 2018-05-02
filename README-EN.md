@@ -87,7 +87,7 @@ query();
 
 ### API:
 
-`ADODB.open(connection): ADODB`
+`ADODB.open(connection[, x64]): ADODB`
 
 > Initialization database link parameters.
 
@@ -117,8 +117,8 @@ query();
 
 ### Notes:
 
-> The library need system support for Microsoft.Jet.OLEDB.4.0, Windows XP SP2 above support system default, other need to upgrade their specific operation process, please refer to:
-> [How to obtain the Microsoft Jet 4 database engine of the new Service Pack](http://support2.microsoft.com/kb/239114/en-us)
+> The library need system support `Microsoft.Jet.OLEDB.4.0` or `Microsoft.ACE.OLEDB.12.0`, `Windows XP SP2` above support `Microsoft.Jet.OLEDB.4.0` by default, Others need to install support!
+> Recommended use `Microsoft.ACE.OLEDB.12.0`, download: [Microsoft.ACE.OLEDB.12.0](https://www.microsoft.com/en-us/download/details.aspx?id=13255)
 
 [npm-image]: https://img.shields.io/npm/v/node-adodb.svg?style=flat-square
 [npm-url]: https://www.npmjs.org/package/node-adodb

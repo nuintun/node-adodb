@@ -7,7 +7,8 @@
 'use strict';
 
 // Import lib
-const proxy = require('./lib/proxy');
+const Proxy = require('./lib/proxy');
+const engine = require('./lib/engine');
 const debug = require('debug')('ADODB');
 
 // Set debug color
@@ -21,8 +22,9 @@ class ADODB {
    * @constructor
    * @param {string} connection
    */
-  constructor(connection) {
+  constructor(connection, x64) {
     this.connection = connection;
+    this.proxy = new Proxy(engine(x64));
   }
 
   /**
@@ -44,7 +46,7 @@ class ADODB {
       params.scalar = scalar;
     }
 
-    return proxy.exec('execute', params);
+    return this.proxy.exec('execute', params);
   }
 
   /**
@@ -58,7 +60,7 @@ class ADODB {
 
     const connection = this.connection;
 
-    return proxy.exec('query', { connection, sql });
+    return this.proxy.exec('query', { connection, sql });
   }
 
   /**
@@ -88,7 +90,7 @@ class ADODB {
       params.id = id;
     }
 
-    return proxy.exec('schema', params);
+    return this.proxy.exec('schema', params);
   }
 }
 
@@ -97,7 +99,8 @@ module.exports = {
   /**
    * @function open
    * @param {string} connection
+   * @param {boolean} x64
    * @returns {ADODB}
    */
-  open: connection => new ADODB(connection)
+  open: (connection, x64) => new ADODB(connection, x64)
 };

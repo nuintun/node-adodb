@@ -1,3 +1,7 @@
+# 4.2.0 / 2018/05/02
+- Support x64
+- Fixed spawn error catch bugs
+
 # 4.1.0 / 2018/04/28
 - Refactoring code
 - Add node 10 test

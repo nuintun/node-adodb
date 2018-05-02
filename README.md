@@ -86,7 +86,7 @@ query();
 
 ### 接口文档:
 
-`ADODB.open(connection): ADODB`
+`ADODB.open(connection[, x64]): ADODB`
 
 > 初始化数据库链接参数。
 
@@ -117,8 +117,8 @@ query();
 
 ### 注意:
 
-> 该类库需要系统支持 Microsoft.Jet.OLEDB.4.0，对于 Windows XP SP2 以上系统默认支持，其它需要自己升级，具体操作过程请参考：
-> [如何获取 Microsoft Jet 4.0 数据库引擎的最新 Service Pack](http://support.microsoft.com/default.aspx?scid=kb;zh-CN;239114)
+> 该类库需要系统支持 `Microsoft.Jet.OLEDB.4.0` 或者 `Microsoft.ACE.OLEDB.12.0`，对于 `Windows XP SP2` 以上系统默认支持 `Microsoft.Jet.OLEDB.4.0`，其它需要自己安装支持！
+> 推荐使用 `Microsoft.ACE.OLEDB.12.0`，获取地址： [Microsoft.ACE.OLEDB.12.0](https://www.microsoft.com/zh-CN/download/details.aspx?id=13255)
 
 [npm-image]: https://img.shields.io/npm/v/node-adodb.svg?style=flat-square
 [npm-url]: https://www.npmjs.org/package/node-adodb
