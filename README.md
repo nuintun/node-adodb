@@ -118,6 +118,7 @@ query();
 ### 注意:
 
 > 该类库需要系统支持 `Microsoft.Jet.OLEDB.4.0` 或者 `Microsoft.ACE.OLEDB.12.0`，对于 `Windows XP SP2` 以上系统默认支持 `Microsoft.Jet.OLEDB.4.0`，其它需要自己安装支持！
+>
 > 推荐使用 `Microsoft.ACE.OLEDB.12.0`，获取地址： [Microsoft.ACE.OLEDB.12.0](https://www.microsoft.com/zh-CN/download/details.aspx?id=13255)
 
 [npm-image]: https://img.shields.io/npm/v/node-adodb.svg?style=flat-square

@@ -4,7 +4,7 @@
 const ADODB = require('../');
 
 // Variable declaration
-const connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-adodb.mdb;');
+const connection = ADODB.open('Provider=Microsoft.ACE.OLEDB.15.0;Data Source=node-adodb.mdb;', true);
 
 // Query
 connection
