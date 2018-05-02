@@ -6,10 +6,33 @@
 
 'use strict';
 
-const fs = require('fs');
+const fs = require('fs-extra');
 const rollup = require('rollup');
 const uglify = require('uglify-es');
 const pkg = require('./package.json');
+
+/**
+ * @function build
+ * @param {Object} inputOptions
+ * @param {Object} outputOptions
+ */
+async function build(inputOptions, outputOptions) {
+  await fs.remove(outputOptions.file);
+
+  const bundle = await rollup.rollup(inputOptions);
+  const result = await bundle.generate(outputOptions);
+
+  const file = outputOptions.file;
+  const minify = uglify.minify(result.code, {
+    ecma: 5,
+    ie8: true,
+    mangle: { eval: true }
+  });
+
+  await fs.outputFile(file, banner + minify.code);
+
+  console.log(`Build ${file} success!`);
+}
 
 const banner = `/**
  * @module ${pkg.name}
@@ -21,35 +44,16 @@ const banner = `/**
  */
 `;
 
-rollup
-  .rollup({
-    input: 'lib/adodb/main.js'
-  })
-  .then(function(bundle) {
-    const min = 'lib/adodb.js';
+const inputOptions = {
+  input: 'lib/adodb/main.js'
+};
 
-    bundle
-      .generate({
-        format: 'iife',
-        indent: true,
-        strict: true,
-        legacy: true,
-        banner: banner
-      })
-      .then(function(result) {
-        result = uglify.minify(result.code, {
-          ecma: 5,
-          ie8: true,
-          mangle: { eval: true }
-        });
+const outputOptions = {
+  format: 'iife',
+  indent: true,
+  strict: true,
+  legacy: true,
+  file: 'lib/adodb.js'
+};
 
-        fs.writeFileSync(min, banner + result.code);
-        console.log(`  Build ${min} success!`);
-      })
-      .catch(function(error) {
-        console.error(error);
-      });
-  })
-  .catch(function(error) {
-    console.error(error);
-  });
+build(inputOptions, outputOptions);

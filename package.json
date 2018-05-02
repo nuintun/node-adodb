@@ -29,6 +29,7 @@
     "chai": "^4.1.2",
     "rollup": "^0.58.2",
     "holding": "^3.0.2",
+    "fs-extra": "^6.0.0",
     "uglify-es": "^3.3.9"
   },
   "scripts": {
