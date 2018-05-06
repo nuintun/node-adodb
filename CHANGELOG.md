@@ -1,3 +1,6 @@
+# 4.2.2 / 2018/05/06
+- Update typescript declaration file
+
 # 4.2.1 / 2018/05/06
 - Update json.js
 - Add message for SQL contain reserved words and symbols [#55](https://github.com/nuintun/node-adodb/issues/55)

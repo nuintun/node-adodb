@@ -1,5 +1,5 @@
 declare module 'node-adodb' {
-  const open: (connection: string) => open;
+  const open: (connection: string, x64?: boolean) => open;
 
   export interface open {
     query<T>(sql: string): Promise<T>;

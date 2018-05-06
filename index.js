@@ -21,6 +21,7 @@ class ADODB {
   /**
    * @constructor
    * @param {string} connection
+   * @param {boolean} [x64]
    */
   constructor(connection, x64) {
     this.connection = connection;
@@ -30,7 +31,7 @@ class ADODB {
   /**
    * @method execute
    * @param {string} sql
-   * @param {string} scalar
+   * @param {string} [scalar]
    * @returns {Promise}
    */
   execute(sql, scalar) {
@@ -66,8 +67,8 @@ class ADODB {
   /**
    * @method schema
    * @param {number} type
-   * @param {Array} criteria
-   * @param {string} id
+   * @param {Array} [criteria]
+   * @param {string} [id]
    * @returns {Promise}
    */
   schema(type, criteria, id) {
@@ -99,7 +100,7 @@ module.exports = {
   /**
    * @function open
    * @param {string} connection
-   * @param {boolean} x64
+   * @param {boolean} [x64]
    * @returns {ADODB}
    */
   open: (connection, x64) => new ADODB(connection, x64)
