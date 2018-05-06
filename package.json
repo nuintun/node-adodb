@@ -1,6 +1,6 @@
 {
   "name": "node-adodb",
-  "version": "4.2.0",
+  "version": "4.2.1",
   "main": "index.js",
   "license": "MIT",
   "keywords": ["sql", "adodb", "access", "database", "node-adodb", "microsoft adodb"],

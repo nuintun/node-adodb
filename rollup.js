@@ -25,8 +25,7 @@ async function build(inputOptions, outputOptions) {
   const file = outputOptions.file;
   const minify = uglify.minify(result.code, {
     ecma: 5,
-    ie8: true,
-    mangle: { eval: true }
+    ie8: true
   });
 
   await fs.outputFile(file, banner + minify.code);
