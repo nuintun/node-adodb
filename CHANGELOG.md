@@ -1,3 +1,7 @@
+# 4.2.1 / 2018/05/06
+- Update json.js
+- Add message for SQL contain reserved words and symbols 
+
 # 4.2.0 / 2018/05/02
 - Support x64
 - Fixed spawn error catch bugs
