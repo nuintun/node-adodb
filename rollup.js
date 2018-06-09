@@ -51,7 +51,6 @@ const outputOptions = {
   format: 'iife',
   indent: true,
   strict: true,
-  legacy: true,
   file: 'lib/adodb.js'
 };
 
