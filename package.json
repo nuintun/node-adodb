@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "rollup": "^0.62.0",
+    "rollup": "^0.66.1",
     "holding": "^3.0.2",
     "fs-extra": "^6.0.1",
     "uglify-es": "^3.3.9"
