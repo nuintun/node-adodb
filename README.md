@@ -123,7 +123,7 @@ query();
 
 ### Electron
 
-See [English readme](README-EN.MD)
+See [English readme](README-EN.md)
 
 [npm-image]: https://img.shields.io/npm/v/node-adodb.svg?style=flat-square
 [npm-url]: https://www.npmjs.org/package/node-adodb
