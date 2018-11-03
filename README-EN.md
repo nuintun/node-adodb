@@ -121,6 +121,29 @@ query();
 >
 > Recommended use `Microsoft.ACE.OLEDB.12.0`, download: [Microsoft.ACE.OLEDB.12.0](https://www.microsoft.com/en-us/download/details.aspx?id=13255)
 
+### Electron
+
+If you want to use this module in an electron app running from an asar package you'll need to make some changes.
+
+1. Move `adodb.js` outside the asar package (in this example I use electron-builder, the `extraResources` option can move the file outside the asar package)
+```json
+"extraResources": [
+  {
+    "from": "./node_modules/node-adodb/lib/adodb.js",
+    "to": "adodb.js"
+  }
+]
+```
+
+2. Tell the module where to find `adodb.js` while running from an asar package (I added this in electron's `main.js` file)
+```javascript
+if(process.mainModule.filename.indexOf('app.asar') !== -1) // Are we running from inside an asar package?
+{
+  process.env.ADODB_JS = './resources/adodb.js'; // In that case we need to set the correct path to adodb.js
+}
+```
+
+
 [npm-image]: https://img.shields.io/npm/v/node-adodb.svg?style=flat-square
 [npm-url]: https://www.npmjs.org/package/node-adodb
 [download-image]: https://img.shields.io/npm/dm/node-adodb.svg?style=flat-square

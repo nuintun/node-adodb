@@ -121,6 +121,10 @@ query();
 >
 > 推荐使用 `Microsoft.ACE.OLEDB.12.0`，获取地址： [Microsoft.ACE.OLEDB.12.0](https://www.microsoft.com/zh-CN/download/details.aspx?id=13255)
 
+### Electron
+
+See [English readme](README-EN.MD)
+
 [npm-image]: https://img.shields.io/npm/v/node-adodb.svg?style=flat-square
 [npm-url]: https://www.npmjs.org/package/node-adodb
 [download-image]: https://img.shields.io/npm/dm/node-adodb.svg?style=flat-square
