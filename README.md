@@ -135,7 +135,7 @@ query();
 ]
 ```
 
-> 2. 告诉 `asar` 从哪里运行 `adodb.js` （可以将配置写在 electron's `main.js` 文件中）
+> 2. 告诉 `asar` 从哪里运行 `adodb.js` （可以将配置写在 `Electron` 的 `main.js` 文件中）
 ```javascript
 // Are we running from inside an asar package ?
 if(process.mainModule.filename.indexOf('app.asar') !== -1) {
