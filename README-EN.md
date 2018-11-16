@@ -123,9 +123,9 @@ query();
 
 ### Electron
 
-If you want to use this module in an electron app running from an asar package you'll need to make some changes.
+> If you want to use this module in an electron app running from an asar package you'll need to make some changes.
 
-1. Move `adodb.js` outside the asar package (in this example I use electron-builder, the `extraResources` option can move the file outside the asar package)
+> 1. Move `adodb.js` outside the asar package (in this example I use electron-builder, the `extraResources` option can move the file outside the asar package)
 ```json
 "extraResources": [
   {
@@ -135,7 +135,7 @@ If you want to use this module in an electron app running from an asar package y
 ]
 ```
 
-2. Tell the module where to find `adodb.js` while running from an asar package (I added this in electron's `main.js` file)
+> 2. Tell the module where to find `adodb.js` while running from an asar package (I added this in electron's `main.js` file)
 ```javascript
 // Are we running from inside an asar package ?
 if(process.mainModule.filename.indexOf('app.asar') !== -1) {

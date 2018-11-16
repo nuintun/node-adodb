@@ -123,9 +123,9 @@ query();
 
 ### Electron
 
-如果你想在 `ASAR` 包中运行这个模块，你需要做一些修改。
+> 如果你想在 `ASAR` 包中运行这个模块，你需要做一些修改。
 
-1. 从 `asar` 包中排除 `adodb.js`（使用 `electron-builder`， 可以配置 `extraResources` 将制定文件排除在外）
+> 1. 从 `asar` 包中排除 `adodb.js`（使用 `electron-builder`， 可以配置 `extraResources` 将制定文件排除在外）
 ```json
 "extraResources": [
   {
@@ -135,7 +135,7 @@ query();
 ]
 ```
 
-2. 告诉 `asar` 从哪里运行 `adodb.js` （可以将配置写在 electron's `main.js` 文件中）
+> 2. 告诉 `asar` 从哪里运行 `adodb.js` （可以将配置写在 electron's `main.js` 文件中）
 ```javascript
 // Are we running from inside an asar package ?
 if(process.mainModule.filename.indexOf('app.asar') !== -1) {
