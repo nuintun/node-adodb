@@ -1,6 +1,6 @@
 {
   "name": "node-adodb",
-  "version": "4.2.2",
+  "version": "4.3.0",
   "main": "index.js",
   "license": "MIT",
   "keywords": [
@@ -31,14 +31,14 @@
     "url": "git+https://github.com/nuintun/node-adodb.git"
   },
   "dependencies": {
-    "arch": "^2.1.0",
-    "debug": "^3.1.0"
+    "arch": "^2.1.1",
+    "debug": "^4.1.0"
   },
   "devDependencies": {
-    "chai": "^4.1.2",
-    "rollup": "^0.62.0",
-    "holding": "^3.0.2",
-    "fs-extra": "^6.0.1",
+    "chai": "^4.2.0",
+    "rollup": "^0.67.1",
+    "holding": "^3.1.0",
+    "fs-extra": "^7.0.1",
     "uglify-es": "^3.3.9"
   },
   "scripts": {

@@ -121,6 +121,29 @@ query();
 >
 > 推荐使用 `Microsoft.ACE.OLEDB.12.0`，获取地址： [Microsoft.ACE.OLEDB.12.0](https://www.microsoft.com/zh-CN/download/details.aspx?id=13255)
 
+### Electron
+
+如果你想在 `ASAR` 包中运行这个模块，你需要做一些修改。
+
+1. 从 `asar` 包中排除 `adodb.js`（使用 `electron-builder`， 可以配置 `extraResources` 将制定文件排除在外）
+```json
+"extraResources": [
+  {
+    "from": "./node_modules/node-adodb/lib/adodb.js",
+    "to": "adodb.js"
+  }
+]
+```
+
+2. 告诉 `asar` 从哪里运行 `adodb.js` （可以将配置写在 electron's `main.js` 文件中）
+```javascript
+// Are we running from inside an asar package ?
+if(process.mainModule.filename.indexOf('app.asar') !== -1) {
+  // In that case we need to set the correct path to adodb.js
+  ADODB.PATH = './resources/adodb.js';
+}
+```
+
 [npm-image]: https://img.shields.io/npm/v/node-adodb.svg?style=flat-square
 [npm-url]: https://www.npmjs.org/package/node-adodb
 [download-image]: https://img.shields.io/npm/dm/node-adodb.svg?style=flat-square

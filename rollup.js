@@ -23,10 +23,7 @@ async function build(inputOptions, outputOptions) {
   const result = await bundle.generate(outputOptions);
 
   const file = outputOptions.file;
-  const minify = uglify.minify(result.code, {
-    ecma: 5,
-    ie8: true
-  });
+  const minify = uglify.minify(result.code, { ie8: true });
 
   await fs.outputFile(file, banner + minify.code);
 

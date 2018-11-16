@@ -98,6 +98,22 @@ class ADODB {
 // Exports
 module.exports = {
   /**
+   * @property PATH
+   * @description Set ADODB PATH
+   */
+  set PATH(adodb) {
+    Proxy.adodb = adodb;
+  },
+
+  /**
+   * @property PATH
+   * @description Get ADODB PATH
+   */
+  get PATH() {
+    return Proxy.adodb;
+  },
+
+  /**
    * @function open
    * @param {string} connection
    * @param {boolean} [x64]
