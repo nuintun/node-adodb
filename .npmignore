@@ -87,3 +87,6 @@ package-lock.json
 
 # rollup configuration
 /rollup.js
+
+# GitHub Pages
+_config.yml
