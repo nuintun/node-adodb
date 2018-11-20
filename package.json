@@ -1,6 +1,6 @@
 {
   "name": "node-adodb",
-  "version": "4.3.0",
+  "version": "5.0.0",
   "main": "index.js",
   "license": "MIT",
   "keywords": [
@@ -24,7 +24,7 @@
     "win32"
   ],
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=6.0.0"
   },
   "repository": {
     "type": "git",
@@ -36,10 +36,10 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "rollup": "^0.67.1",
+    "rollup": "^0.67.3",
     "holding": "^3.1.0",
     "fs-extra": "^7.0.1",
-    "uglify-es": "^3.3.9"
+    "terser": "^3.10.11"
   },
   "scripts": {
     "prepublishOnly": "node rollup.js",

@@ -140,7 +140,7 @@ query();
 // Are we running from inside an asar package ?
 if(process.mainModule.filename.indexOf('app.asar') !== -1) {
   // In that case we need to set the correct path to adodb.js
-  process.env.ADODB_JS = './resources/adodb.js';
+  ADODB.PATH = './resources/adodb.js';
 }
 ```
 

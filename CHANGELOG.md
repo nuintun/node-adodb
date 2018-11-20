@@ -1,3 +1,8 @@
+# 5.0.0 / 2018/11/20
+
+- Add `ADODB.PATH` configrue
+- [Breaking] Drop `node < 6.0.0` support
+
 # 4.2.2 / 2018/05/06
 
 - Update typescript declaration file
