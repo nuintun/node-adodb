@@ -87,8 +87,8 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
 
           cb();
         })
-        .catch(error => {
-          cb(error);
+        .catch(() => {
+          cb();
         });
     });
 
