@@ -88,7 +88,7 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
           cb();
         })
         .catch(error => {
-          cb();
+          cb(error);
         });
     });
 
@@ -102,9 +102,7 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
     describe('execute', () => {
       it('no scalar', next => {
         connection
-          .execute(
-            'INSERT INTO Users(UserName, UserSex, UserBirthday, UserMarried) VALUES ("Bill", "Male", "1991/3/9", 0)'
-          )
+          .execute('INSERT INTO Users(UserName, UserSex, UserBirthday, UserMarried) VALUES ("Bill", "Male", "1991/3/9", 0)')
           .then(data => {
             expect(data.length).to.equal(0);
 
