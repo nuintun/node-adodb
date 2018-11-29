@@ -39,12 +39,9 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
           expect(data[0].UserName).to.equal('Nuintun');
           expect(data[0]).to.have.ownProperty('UserBirthday');
           expect(data[2].UserName).to.equal('张三');
-
           next();
         })
-        .catch(error => {
-          next(error);
-        });
+        .catch(next);
     });
 
     it('schema', next => {
@@ -61,9 +58,7 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
 
           cb();
         })
-        .catch(error => {
-          cb(error);
-        });
+        .catch(cb);
 
       connection
         .schema(4, [null, null, 'Users'])
@@ -76,20 +71,15 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
 
           cb();
         })
-        .catch(error => {
-          cb(error);
-        });
+        .catch(cb);
 
       connection
         .schema(-1, [null, null, 'Users'], 'TABLE')
         .then(data => {
           expect(data).to.be.an('array');
-
           cb();
         })
-        .catch(() => {
-          cb();
-        });
+        .catch(() => cb());
     });
 
     it('Invaid sql syntax', next => {
@@ -105,12 +95,9 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
           .execute('INSERT INTO Users(UserName, UserSex, UserBirthday, UserMarried) VALUES ("Bill", "Male", "1991/3/9", 0)')
           .then(data => {
             expect(data.length).to.equal(0);
-
             next();
           })
-          .catch(error => {
-            next(error);
-          });
+          .catch(next);
       });
 
       it('with scalar', next => {
@@ -122,12 +109,9 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
           .then(function(data) {
             expect(data.length).to.equal(1);
             expect(data[0].id).to.equal(5);
-
             next();
           })
-          .catch(error => {
-            next(error);
-          });
+          .catch(next);
       });
     });
   });
