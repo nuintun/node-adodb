@@ -39,7 +39,7 @@
     "rollup": "^0.67.3",
     "holding": "^3.1.0",
     "fs-extra": "^7.0.1",
-    "terser": "^3.10.11"
+    "terser": "^3.10.12"
   },
   "scripts": {
     "prepublishOnly": "node rollup.js",
