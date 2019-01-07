@@ -20,7 +20,8 @@ async function build(inputOptions, outputOptions) {
   await fs.remove(outputOptions.file);
 
   const bundle = await rollup.rollup(inputOptions);
-  const result = await bundle.generate(outputOptions);
+  const { output } = await bundle.generate(outputOptions);
+  const [result] = output;
 
   const file = outputOptions.file;
   const minify = terser.minify(result.code, { ie8: true });

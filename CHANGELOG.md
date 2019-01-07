@@ -1,3 +1,6 @@
+# 5.0.1 / 2019/01/07
+- Bump dev deps
+
 # 5.0.0 / 2018/11/20
 
 - Add `ADODB.PATH` configrue
