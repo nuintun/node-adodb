@@ -82,6 +82,9 @@ test
 # npm lock file
 package-lock.json
 
+# yarn lock file
+yarn.lock
+
 # adodb src file
 /lib/adodb/
 

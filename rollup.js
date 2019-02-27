@@ -7,8 +7,8 @@
 'use strict';
 
 const fs = require('fs-extra');
-const rollup = require('rollup');
 const terser = require('terser');
+const rollup = require('rollup');
 const pkg = require('./package.json');
 
 /**
@@ -46,9 +46,9 @@ const inputOptions = {
 };
 
 const outputOptions = {
-  format: 'iife',
   indent: true,
   strict: true,
+  format: 'iife',
   file: 'lib/adodb.js'
 };
 
