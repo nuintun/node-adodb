@@ -88,9 +88,9 @@ graceful-fs@^4.1.2, graceful-fs@^4.1.6:
   integrity sha512-6uHUhOPEBgQ24HM+r6b/QwWfZq+yiFcipKFrOFiBEnWdy5sdzYoi+pJeQaPI5qOLRFqWmAXUPQNsielzdLoecA==
 
 holding@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/holding/-/holding-3.1.0.tgz#723a9c2325155e52e607146c5ed90b11974eb8de"
-  integrity sha512-GMsG1xTEzarTNcE7gMrvGEnmqkh8kW6NR7uyaIadOoAJwvzSGutYndmPRe1u1b/ec0TOSG4AiY+EIJwCImxHjw==
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/holding/-/holding-3.1.1.tgz#601b8770794e24552bb227eead96b43766fd1c04"
+  integrity sha512-467ENnVR4iYdbqtyQFEzBVNPYMvHTbwbcy8Lm2Q0xibHr0fZ83S6Z3ushXAHcLvSD6cY+YMNTLWj1F8QAsoanA==
 
 jsonfile@^4.0.0:
   version "4.0.0"
