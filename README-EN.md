@@ -111,9 +111,10 @@ query();
 
 > This library theory supports all databases on the Windows platform that support ADODB connections, and only need to change the database connection string to achieve the operation!
 
-> Common access connection strings: 
->  - Access 2000-2003 (\*.mdb): `Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-adodb.mdb;`
->  - Access > 2007 (\*.accdb): `Provider=Microsoft.ACE.OLEDB.12.0;Data Source=adodb.accdb;Persist Security Info=False;` or  `Provider=Microsoft.ACE.OLEDB.15.0;Data Source=adodb.accdb;Persist Security Info=False;`
+> Common access connection strings:
+>
+> - Access 2000-2003 (\*.mdb): `Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-adodb.mdb;`
+> - Access > 2007 (\*.accdb): `Provider=Microsoft.ACE.OLEDB.12.0;Data Source=adodb.accdb;Persist Security Info=False;` or `Provider=Microsoft.ACE.OLEDB.15.0;Data Source=adodb.accdb;Persist Security Info=False;`
 
 ### Notes:
 
@@ -126,6 +127,7 @@ query();
 > If you want to use this module in an electron app running from an asar package you'll need to make some changes.
 
 > 1. Move `adodb.js` outside the asar package (in this example I use electron-builder, the `extraResources` option can move the file outside the asar package)
+
 ```json
 "extraResources": [
   {
@@ -136,9 +138,10 @@ query();
 ```
 
 > 2. Tell the module where to find `adodb.js` while running from an asar package (I added this in electron's `main.js` file)
+
 ```javascript
 // Are we running from inside an asar package ?
-if(process.mainModule.filename.indexOf('app.asar') !== -1) {
+if (process.mainModule.filename.indexOf('app.asar') !== -1) {
   // In that case we need to set the correct path to adodb.js
   ADODB.PATH = './resources/adodb.js';
 }
@@ -151,6 +154,6 @@ if(process.mainModule.filename.indexOf('app.asar') !== -1) {
 [appveyor-url]: https://ci.appveyor.com/project/nuintun/node-adodb
 [coveralls-image]: http://img.shields.io/coveralls/nuintun/node-adodb/master.svg?style=flat-square
 [coveralls-url]: https://coveralls.io/r/nuintun/node-adodb?branch=master
-[david-image]: https://img.shields.io/david/nuintun/node-adodb/master.svg?style=flat-square
+[david-image]: https://img.shields.io/david/nuintun/node-adodb.svg?style=flat-square
 [david-url]: https://david-dm.org/nuintun/node-adodb
 [node-image]: https://img.shields.io/node/v/node-adodb.svg?style=flat-square

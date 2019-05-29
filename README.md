@@ -65,6 +65,7 @@ connection
 ```
 
 ##### ES7 async/await
+
 ```js
 'use strict';
 
@@ -110,10 +111,10 @@ query();
 
 > 该类库理论支持 Windows 平台下所有支持 ADODB 连接的数据库，只需要更改数据库连接字符串即可实现操作！
 
-> 数据库连接字符串： 
->  - Access 2000-2003 (\*.mdb): `Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-adodb.mdb;`
->  - Access > 2007 (\*.accdb): `Provider=Microsoft.ACE.OLEDB.12.0;Data Source=adodb.accdb;Persist Security Info=False;` 或者  `Provider=Microsoft.ACE.OLEDB.15.0;Data Source=adodb.accdb;Persist Security Info=False;`
-
+> 数据库连接字符串：
+>
+> - Access 2000-2003 (\*.mdb): `Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-adodb.mdb;`
+> - Access > 2007 (\*.accdb): `Provider=Microsoft.ACE.OLEDB.12.0;Data Source=adodb.accdb;Persist Security Info=False;` 或者   `Provider=Microsoft.ACE.OLEDB.15.0;Data Source=adodb.accdb;Persist Security Info=False;`
 
 ### 注意:
 
@@ -126,6 +127,7 @@ query();
 > 如果你想在 `ASAR` 包中运行这个模块，你需要做一些修改。
 
 > 1. 从 `asar` 包中排除 `adodb.js`（使用 `electron-builder`， 可以配置 `extraResources` 将制定文件排除在外）
+
 ```json
 "extraResources": [
   {
@@ -136,9 +138,10 @@ query();
 ```
 
 > 2. 告诉 `asar` 从哪里运行 `adodb.js` （可以将配置写在 `Electron` 的 `main.js` 文件中）
+
 ```javascript
 // Are we running from inside an asar package ?
-if(process.mainModule.filename.indexOf('app.asar') !== -1) {
+if (process.mainModule.filename.indexOf('app.asar') !== -1) {
   // In that case we need to set the correct path to adodb.js
   ADODB.PATH = './resources/adodb.js';
 }
@@ -151,6 +154,6 @@ if(process.mainModule.filename.indexOf('app.asar') !== -1) {
 [appveyor-url]: https://ci.appveyor.com/project/nuintun/node-adodb
 [coveralls-image]: http://img.shields.io/coveralls/nuintun/node-adodb/master.svg?style=flat-square
 [coveralls-url]: https://coveralls.io/r/nuintun/node-adodb?branch=master
-[david-image]: https://img.shields.io/david/nuintun/node-adodb/master.svg?style=flat-square
+[david-image]: https://img.shields.io/david/nuintun/node-adodb.svg?style=flat-square
 [david-url]: https://david-dm.org/nuintun/node-adodb
 [node-image]: https://img.shields.io/node/v/node-adodb.svg?style=flat-square
