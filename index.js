@@ -114,6 +114,22 @@ module.exports = {
   },
 
   /**
+   * @property OPTIONS
+   * @description set ADODB OPTIONS
+   */
+  set OPTIONS(options) {
+	Proxy.options = options;
+  }
+
+  /**
+   * @property OPTIONS
+   * @description Get ADODB OPTIONS
+   */
+  get OPTIONS(options) {
+	return Proxy.options;
+  }
+
+  /**
    * @function open
    * @param {string} connection
    * @param {boolean} [x64]
