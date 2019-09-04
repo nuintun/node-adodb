@@ -34,12 +34,12 @@ class ADODB {
    * @param {string} [scalar]
    * @returns {Promise}
    */
-  execute(sql, scalar) {
+  execute(sql, scalar, commandtimeout) {
     debug('cmd:', 'execute');
     debug('sql:', sql);
 
     const connection = this.connection;
-    const params = { connection, sql };
+    const params = { connection, sql, commandtimeout };
 
     if (arguments.length > 1) {
       debug('scalar:', scalar);
@@ -55,13 +55,13 @@ class ADODB {
    * @param {string} sql
    * @returns {Promise}
    */
-  query(sql) {
+  query(sql, commandtimeout) {
     debug('cmd:', 'query');
     debug('sql:', sql);
 
     const connection = this.connection;
 
-    return this.proxy.exec('query', { connection, sql });
+    return this.proxy.exec('query', { connection, sql, commandtimeout });
   }
 
   /**
@@ -71,13 +71,13 @@ class ADODB {
    * @param {string} [id]
    * @returns {Promise}
    */
-  schema(type, criteria, id) {
+  schema(type, criteria, id, commandtimeout) {
     debug('cmd:', 'schema');
     debug('type:', type);
 
     const length = arguments.length;
     const connection = this.connection;
-    const params = { connection, type };
+    const params = { connection, type, commandtimeout };
 
     if (length > 1) {
       debug('criteria:', criteria);
