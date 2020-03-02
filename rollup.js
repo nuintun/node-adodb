@@ -24,7 +24,7 @@ async function build(inputOptions, outputOptions) {
   const [result] = output;
 
   const file = outputOptions.file;
-  const minify = terser.minify(result.code, { ie8: true });
+  const minify = terser.minify(result.code, { ie8: true, output: { comments: false } });
 
   await fs.outputFile(file, banner + minify.code);
 
