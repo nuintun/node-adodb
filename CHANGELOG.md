@@ -2,6 +2,10 @@
 
 - Fixed error catch
 
+# 5.0.3 / 2019/09/12
+
+- Bump deps
+
 # 5.0.1 / 2019/01/07
 
 - Bump dev deps
