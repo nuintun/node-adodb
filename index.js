@@ -50,6 +50,21 @@ class ADODB {
     return this.proxy.exec('execute', params);
   }
 
+   /**
+   * @method transaction
+   * @param {string} sql
+   * @returns {Promise}
+   */
+  transaction(sql) {
+    debug('cmd:', 'transaction');
+    debug('sql:', sql);
+
+    const connection = this.connection;
+    const params = { connection, sql };
+
+    return this.proxy.exec('transaction', params);
+  }
+
   /**
    * @method query
    * @param {string} sql

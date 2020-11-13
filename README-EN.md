@@ -23,6 +23,18 @@
 const ADODB = require('node-adodb');
 const connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-adodb.mdb;');
 
+// Transaction
+connection
+  .transaction([`INSERT INTO Users(UserId, UserName, UserSex, UserBirthday, UserMarried) VALUES (10, "Tom", "Male", "1981/5/10", 0);`,
+          `INSERT INTO Users(UserId, UserName, UserSex, UserBirthday, UserMarried) VALUES (11, "Brenda", "Female", "2001/1/11", 0);`,
+          `INSERT INTO Users(UserId, UserName, UserSex, UserBirthday, UserMarried) VALUES (10, "Bill", "Male", "1991/3/9", 0);`])
+  .then(data => {
+    console.log("We will not arrive because a duplicate id is generated. When encountering an error do not insert any record.");
+  })
+  .catch(error => {
+    console.error(error);
+  });
+
 // Execute
 connection
   .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)')
@@ -98,6 +110,10 @@ query();
 `ADODB.execute(sql[, scalar]): Promise`
 
 > Execute a SQL statement with no return value or with updated statistics.
+
+`ADODB.transaction(sql[]): Promise`
+
+> Execute multiple SQL statement as a transaction.
 
 `ADODB.schema(type[, criteria][, id]): Promise`
 

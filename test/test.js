@@ -44,6 +44,26 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
         .catch(next);
     });
 
+    it('transaction', next => {
+      connection
+        .transaction([`INSERT INTO Users(UserId, UserName, UserSex, UserBirthday, UserMarried) VALUES (10, "Tom", "Male", "1981/5/10", 0);`,
+          `INSERT INTO Users(UserId, UserName, UserSex, UserBirthday, UserMarried) VALUES (11, "Brenda", "Female", "2001/1/11", 0);`,
+          `INSERT INTO Users(UserId, UserName, UserSex, UserBirthday, UserMarried) VALUES (10, "Bill", "Male", "1991/3/9", 0);`])
+        .then(data => {
+          expect.fail();
+          // next();
+        })
+        .catch(ex => {
+          connection
+          .query('SELECT * FROM Users')
+          .then(data => {
+            expect(data.length).to.equal(3);
+            next();
+          })
+          .catch(next);
+        });
+    });
+
     it('schema', next => {
       const cb = holding(2, next);
 

@@ -23,6 +23,18 @@
 const ADODB = require('node-adodb');
 const connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-adodb.mdb;');
 
+// 交易
+connection
+  .transaction([`INSERT INTO Users(UserId, UserName, UserSex, UserBirthday, UserMarried) VALUES (10, "Tom", "Male", "1981/5/10", 0);`,
+          `INSERT INTO Users(UserId, UserName, UserSex, UserBirthday, UserMarried) VALUES (11, "Brenda", "Female", "2001/1/11", 0);`,
+          `INSERT INTO Users(UserId, UserName, UserSex, UserBirthday, UserMarried) VALUES (10, "Bill", "Male", "1991/3/9", 0);`])
+  .then(data => {
+    console.log("我们不会到达，因为生成了重复的ID。遇到错误时，请勿插入任何记录。");
+  })
+  .catch(error => {
+    console.error(error);
+  });
+
 // 不带返回的执行
 connection
   .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)')
@@ -98,6 +110,10 @@ query();
 `ADODB.execute(sql[, scalar]): Promise`
 
 > 执行无返回值或者带更新统计的的 SQL 语句。
+
+`ADODB.transaction(sql[]): Promise`
+
+> 执行多个SQL语句作为事务。
 
 `ADODB.schema(type[, criteria][, id]): Promise`
 
