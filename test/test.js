@@ -128,7 +128,7 @@ if (fs.existsSync(cscript) && fs.existsSync(source)) {
           )
           .then(function(data) {
             expect(data.length).to.equal(1);
-            expect(data[0].id).to.equal(5);
+            expect(data[0].id).to.equal(13);
             next();
           })
           .catch(next);
